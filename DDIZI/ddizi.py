@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-DDIZI.im Scraper - GÜVENİLİR VE ÇALIŞAN SÜRÜM
+DDIZI.im Scraper - GÜVENİLİR VE NİHAİ SÜRÜM
 Bu script, ddizi.im sitesindeki tüm dizileri, bölümleri ve yayın linklerini
 çekerek M3U listeleri oluşturur.
 """
@@ -13,7 +13,6 @@ import sys
 import time
 import logging
 from pathlib import Path
-# DÜZELTME: Eksik olan 'Tuple' malzemesi buraya eklendi.
 from typing import List, Dict, Any, Optional, Tuple
 from urllib.parse import urljoin
 
@@ -32,7 +31,8 @@ ALL_M3U_NAME = "DDIZI"
 SERIES_M3U_DIR = str(BASE_DIR / "diziler")
 
 BASE_URL = "https://www.ddizi.im/"
-SERIES_LIST_URL = urljoin(BASE_URL, "dizi-listesi")
+# DÜZELTME: Sitenin doğru dizi listesi adresi "/arsiv" olarak güncellendi.
+SERIES_LIST_URL = urljoin(BASE_URL, "arsiv")
 
 REQUEST_TIMEOUT = 30
 MAX_RETRIES = 5
@@ -106,13 +106,14 @@ def create_single_m3u(channel_folder_path: str, data: List[Dict[str, Any]], cust
 
 def get_all_series() -> List[Dict[str, str]]:
     """Sitedeki tüm dizilerin listesini çeker."""
-    log.info("Sitedeki tüm dizi listesi alınıyor...")
+    log.info("Sitedeki tüm dizi listesi alınıyor: %s", SERIES_LIST_URL)
     try:
         response = SESSION.get(SERIES_LIST_URL, timeout=REQUEST_TIMEOUT)
         response.raise_for_status()
         soup = BeautifulSoup(response.content, "html.parser")
         
         series_list = []
+        # Arşiv sayfasındaki seçici (selector) doğru, değişiklik gerekmiyor.
         links = soup.select("ul.dizi-list li a")
         for link in links:
             if link.get("href"):
@@ -135,12 +136,10 @@ def get_episodes_for_series(series_url: str) -> Tuple[str, List[Dict[str, str]]]
         response.raise_for_status()
         soup = BeautifulSoup(response.content, "html.parser")
         
-        # Posteri al
         poster_tag = soup.select_one("div.dizi-poster img")
         if poster_tag:
             poster_img = urljoin(BASE_URL, poster_tag.get("src", ""))
 
-        # Bölümleri al
         episode_links = soup.select("div.sezon-bolumleri ul li a")
         for link in episode_links:
             if link.get("href"):
@@ -156,7 +155,6 @@ def get_episodes_for_series(series_url: str) -> Tuple[str, List[Dict[str, str]]]
 def get_stream_url_from_episode(episode_url: str) -> Optional[str]:
     """Bölüm sayfasından video yayın linkini (m3u8) çeker."""
     try:
-        # 1. Adım: Bölüm sayfasını al ve Fembed iframe'ini bul
         response = SESSION.get(episode_url, timeout=REQUEST_TIMEOUT)
         response.raise_for_status()
         soup = BeautifulSoup(response.content, "html.parser")
@@ -169,14 +167,12 @@ def get_stream_url_from_episode(episode_url: str) -> Optional[str]:
         fembed_url = "https:" + iframe["src"]
         video_id = fembed_url.split('/')[-1]
         
-        # 2. Adım: Fembed API'sine istek at
         fembed_api_url = f"https://femax20.com/api/source/{video_id}"
         api_response = SESSION.post(fembed_api_url, headers={"Referer": fembed_url}, timeout=REQUEST_TIMEOUT)
         api_response.raise_for_status()
         
         api_data = api_response.json()
         if api_data.get("success") and api_data.get("data"):
-            # En yüksek kaliteli m3u8 linkini seç
             highest_quality_source = api_data["data"][-1]
             return highest_quality_source.get("file")
             
@@ -218,7 +214,7 @@ def run() -> None:
                 ep_with_stream = dict(ep)
                 ep_with_stream["stream_url"] = stream_url
                 temp_series["episodes"].append(ep_with_stream)
-            time.sleep(0.1) # Sunucuyu yormamak için küçük bekleme
+            time.sleep(0.1)
 
         if temp_series["episodes"]:
             processed_data.append(temp_series)
