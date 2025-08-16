@@ -29,6 +29,12 @@ jobs:
       - name: Install dependencies
         run: pip install -r DDIZI/requirements.txt
 
+      # YENİ HATA AYIKLAMA ADIMI
+      - name: List files in the project
+        run: ls -R
+        # Bu komut, projedeki tüm dosya ve klasörleri listeleyerek
+        # bize dosyanın tam olarak nerede olduğunu gösterecek.
+
       # 4. Adım: DDIZI scraper script'ini çalıştır
       - name: Run DDIZI script
         run: python DDIZI/ddizi.py
@@ -41,4 +47,3 @@ jobs:
           git add DDIZI/DDIZI.m3u DDIZI/diziler/*.m3u || true
           git commit -m "Update DDIZI M3U files [skip ci]" || echo "No changes to commit"
           git push
- 
