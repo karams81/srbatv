@@ -5,9 +5,6 @@
 DDIZI.im Scraper - GÜVENİLİR VE ÇALIŞAN SÜRÜM
 Bu script, ddizi.im sitesindeki tüm dizileri, bölümleri ve yayın linklerini
 çekerek M3U listeleri oluşturur.
-
-- DDIZI.m3u         -> Tüm dizilerin birleşik listesi
-- diziler/*.m3u   -> Her dizi için ayrı M3U dosyası
 """
 
 import os
@@ -16,7 +13,8 @@ import sys
 import time
 import logging
 from pathlib import Path
-from typing import List, Dict, Any, Optional
+# DÜZELTME: Eksik olan 'Tuple' malzemesi buraya eklendi.
+from typing import List, Dict, Any, Optional, Tuple
 from urllib.parse import urljoin
 
 import requests
