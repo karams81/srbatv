@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 
 """
-ATV.com.tr Scraper (Diziler ve Programlar) - NİHAİ ve KESİN ÇÖZÜM
+ATV.com.tr Scraper (Diziler ve Programlar) - DAYANIKLI VE SABIRLI NİHAİ SÜRÜM
 Bu script, Playwright kütüphanesi kullanarak gerçek bir tarayıcıyı
-otomatize eder. Bu sayede tüm JavaScript korumalarını ve dinamik içerik
-yüklemelerini aşarak veriyi %100 güvenilirlikle çeker.
+otomatize eder. GitHub Actions gibi yavaş veya kısıtlı ağ koşullarında
+çalışmak üzere artırılmış zaman aşımları ve daha sağlam bekleme
+stratejileri ile donatılmıştır.
 """
 
 import os
@@ -36,9 +37,9 @@ DIZILER_PAGE_URL = urljoin(BASE_URL, "diziler")
 PROGRAMLAR_PAGE_URL = urljoin(BASE_URL, "programlar")
 STREAM_API_URL = "https://vms.atv.com.tr/vms/api/Player/GetVideoPlayer"
 
-# Tarayıcı ve istekler için zaman aşımları (saniye)
-PAGE_TIMEOUT = 60000  # 60 saniye
-SELECTOR_TIMEOUT = 30000 # 30 saniye
+# GITHUB ACTIONS İÇİN ARTIRILMIŞ ZAMAN AŞIMLARI (milisanİye)
+PAGE_TIMEOUT = 120000  # 120 saniye (2 dakika)
+SELECTOR_TIMEOUT = 120000 # 120 saniye (2 dakika)
 
 # Loglama ayarları
 logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)-8s | %(message)s", datefmt="%H:%M:%S")
@@ -96,21 +97,24 @@ def create_single_m3u(channel_folder_path: str, data: List[Dict[str, Any]], cust
 
 
 # ============================
-# 3. VERİ ÇEKME FONKSİYONLARI (PLAYWRIGHT İLE SIFIRDAN YAZILDI)
+# 3. VERİ ÇEKME FONKSİYONLARI (DAYANIKLI HALE GETİRİLDİ)
 # ============================
 
 def get_content_list(page: Page, url: str, content_type: str) -> List[Dict[str, str]]:
     """Playwright kullanarak verilen sayfadaki tüm içerikleri (dizi/program) çeker."""
-    log.info("'%s' sayfasından '%s' listesi çekiliyor...", url, content_type)
+    log.info("'%s' sayfasından '%s' listesi çekiliyor (Max %d saniye bekleme süresi)...", url, content_type, PAGE_TIMEOUT/1000)
     content_list = []
     try:
-        page.goto(url, timeout=PAGE_TIMEOUT, wait_until="domcontentloaded")
-        # JavaScript'in içeriği yüklemesi için kilit seçiciyi bekle
-        page.wait_for_selector("article.widget-item a", timeout=SELECTOR_TIMEOUT)
+        # Daha güvenilir bekleme stratejisi: networkidle
+        page.goto(url, timeout=PAGE_TIMEOUT, wait_until="networkidle")
         
         soup = BeautifulSoup(page.content(), "html.parser")
         items = soup.select("article.widget-item a")
         
+        if not items:
+            log.warning("-> Sayfa yüklendi ancak '%s' için içerik bulunamadı. Sayfa yapısı değişmiş olabilir.", content_type)
+            return []
+
         for a_tag in items:
             img_tag = a_tag.find("img")
             if not (a_tag.get("href") and img_tag): continue
@@ -124,7 +128,7 @@ def get_content_list(page: Page, url: str, content_type: str) -> List[Dict[str, 
         log.info("-> Başarılı: %d adet %s bulundu.", len(content_list), content_type)
         return content_list
     except PlaywrightTimeoutError:
-        log.error("-> Zaman aşımı! Sayfa içeriği '%s' saniyede yüklenemedi: %s", SELECTOR_TIMEOUT / 1000, url)
+        log.error("-> ZAMAN AŞIMI! Sayfa %d saniyede yüklenemedi: %s", PAGE_TIMEOUT / 1000, url)
         return []
     except Exception as e:
         log.error("-> '%s' listesi çekilirken beklenmedik hata: %s", content_type, e)
@@ -135,11 +139,14 @@ def get_episodes_and_streams(page: Page, content_url: str, session: requests.Ses
     episodes_url = urljoin(content_url.rstrip('/') + "/", "bolumler")
     processed_episodes = []
     try:
-        page.goto(episodes_url, timeout=PAGE_TIMEOUT, wait_until="domcontentloaded")
-        page.wait_for_selector("article.widget-item a", timeout=SELECTOR_TIMEOUT)
+        page.goto(episodes_url, timeout=PAGE_TIMEOUT, wait_until="networkidle")
         
         soup = BeautifulSoup(page.content(), "html.parser")
         episode_links = soup.select("article.widget-item a")
+
+        if not episode_links:
+            log.warning("-> Bölüm sayfasında link bulunamadı: %s", episodes_url)
+            return []
 
         for ep_link in tqdm(episode_links, desc=f"   -> Bölümler", leave=False):
             ep_name_div = ep_link.select_one("div.name")
@@ -148,15 +155,12 @@ def get_episodes_and_streams(page: Page, content_url: str, session: requests.Ses
             ep_url = urljoin(BASE_URL, ep_link["href"])
             ep_name = ep_name_div.get_text(strip=True)
             
-            # Yayın linkini almak için bölüm sayfasına git
             try:
-                page.goto(ep_url, timeout=PAGE_TIMEOUT, wait_until="domcontentloaded")
-                # Video ID'sini içeren elementi bekle
+                page.goto(ep_url, timeout=PAGE_TIMEOUT, wait_until="networkidle")
                 video_container = page.wait_for_selector("div#video-container[data-videoid]", timeout=SELECTOR_TIMEOUT)
                 video_id = video_container.get_attribute("data-videoid")
                 
                 if video_id:
-                    # Hızlı olmak için API isteğini requests ile yap
                     response = session.get(STREAM_API_URL, params={"id": video_id})
                     response.raise_for_status()
                     stream_url = response.json()["data"]["video"]["url"]
@@ -185,7 +189,6 @@ def run() -> None:
         )
         page = context.new_page()
 
-        # 1. Adım: Tüm dizileri ve programları çek
         diziler = get_content_list(page, DIZILER_PAGE_URL, "dizi")
         programlar = get_content_list(page, PROGRAMLAR_PAGE_URL, "program")
         
@@ -197,13 +200,11 @@ def run() -> None:
             
         log.info("Toplam %d içerik bulundu. Bölümler ve yayın linkleri çekilecek...", len(all_content))
         
-        # API istekleri için requests session'ı hazırla
         api_session = requests.Session()
         api_session.headers.update({"Referer": BASE_URL})
 
         processed_data = []
 
-        # 2. Adım: Her içerik için bölümleri ve yayın linklerini çek
         for content in tqdm(all_content, desc="Tüm İçerikler"):
             log.info("İşleniyor: %s (%s)", content["name"], content["type"].upper())
             episodes_with_streams = get_episodes_and_streams(page, content["url"], api_session)
@@ -216,7 +217,6 @@ def run() -> None:
         browser.close()
         log.info("Tarayıcı kapatıldı.")
 
-        # 3. Adım: Çekilen verileri M3U dosyalarına yaz
         if not processed_data:
             log.error("Hiçbir bölüm için geçerli yayın linki bulunamadı. M3U dosyaları oluşturulmayacak.")
             return
