@@ -2,14 +2,15 @@
 # -*- coding: utf-8 -*-
 
 """
-ATV.com.tr scraper (yalnızca M3U üretir) - GÜNCELLENMİŞ SÜRÜM
-- ATV.m3u       → bu .py dosyasının olduğu klasöre
-- programlar/* → her dizi için ayrı M3U (aynı klasör altındaki 'programlar' klasörüne)
+ATV.com.tr Scraper (Diziler ve Programlar) - KESİN ÇÖZÜM
+- ATV.m3u         -> Tüm içeriklerin birleşik listesi
+- diziler/*.m3u   -> Her dizi için ayrı M3U dosyası
+- programlar/*.m3u -> Her program için ayrı M3U dosyası
 
 Kullanım:
   python atv.py
-  python atv.py 10       (ilk 10 diziyi alır)
-  python atv.py 5 15     (5. diziden 15. diziye kadar alır)
+  python atv.py 10       (ilk 10 içeriği alır - dizi/program karışık)
+  python atv.py 5 15     (5. içerikten 15. içeriğe kadar alır)
 """
 
 import os
@@ -27,7 +28,7 @@ from requests.adapters import HTTPAdapter, Retry
 from slugify import slugify
 
 # ============================
-# ÇIKTI KONUMU (.py ile aynı klasördeki 'ATV' klasörü)
+# ÇIKTI KONUMLARI
 # ============================
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -35,9 +36,9 @@ BASE_DIR = Path(__file__).resolve().parent
 ALL_M3U_DIR = str(BASE_DIR)
 ALL_M3U_NAME = "ATV"
 
-# Dizi bazlı listeler: ./programlar/*.m3u
-SERIES_M3U_DIR = str(BASE_DIR / "programlar")
-SERIES_MASTER = False
+# Kategori bazlı listeler için klasörler
+DIZILER_M3U_DIR = str(BASE_DIR / "diziler")
+PROGRAMLAR_M3U_DIR = str(BASE_DIR / "programlar")
 
 # ============================
 # M3U YARDIMCILARI (Değişiklik Gerekmiyor)
@@ -53,26 +54,18 @@ def _atomic_write(path: str, text: str) -> None:
     os.replace(tmp, path)
 
 def _safe_series_filename(name: str) -> str:
-    return slugify((name or "dizi").lower()) + ".m3u"
+    return slugify((name or "icerik").lower()) + ".m3u"
 
-def create_m3us(channel_folder_path: str,
-                data: List[Dict[str, Any]],
-                master: bool = False,
-                base_url: str = "") -> None:
+def create_m3us_for_category(channel_folder_path: str, data: List[Dict[str, Any]]) -> None:
     _ensure_dir(channel_folder_path)
-    master_lines: List[str] = ["#EXTM3U"] if master else []
-
-    if base_url and not base_url.endswith(("/", "\\")):
-        base_url = base_url + "/"
-
-    for serie in (data or []):
-        episodes = serie.get("episodes") or []
+    for item in (data or []):
+        episodes = item.get("episodes") or []
         if not episodes:
             continue
 
-        series_name = (serie.get("name") or "Bilinmeyen Seri").strip()
-        series_logo = (serie.get("img") or "").strip()
-        plist_name = _safe_series_filename(series_name)
+        item_name = (item.get("name") or "Bilinmeyen İçerik").strip()
+        item_logo = (item.get("img") or "").strip()
+        plist_name = _safe_series_filename(item_name)
         plist_path = os.path.join(channel_folder_path, plist_name)
 
         lines: List[str] = ["#EXTM3U"]
@@ -81,252 +74,230 @@ def create_m3us(channel_folder_path: str,
             if not stream:
                 continue
             ep_name = ep.get("name") or "Bölüm"
-            logo_for_line = series_logo or ep.get("img") or ""
-            group = series_name.replace('"', "'")
+            logo_for_line = item_logo or ep.get("img") or ""
+            group = item_name.replace('"', "'")
             lines.append(f'#EXTINF:-1 tvg-logo="{logo_for_line}" group-title="{group}",{ep_name}')
             lines.append(stream)
 
         if len(lines) > 1:
             _atomic_write(plist_path, "\n".join(lines) + "\n")
-            if master:
-                master_lines.append(f'#EXTINF:-1 tvg-logo="{series_logo}", {series_name}')
-                master_lines.append(f'{base_url}{plist_name}')
 
-    if master:
-        master_path = os.path.join(channel_folder_path, "0.m3u")
-        _atomic_write(master_path, "\n".join(master_lines) + "\n")
-
-def create_single_m3u(channel_folder_path: str,
-                      data: List[Dict[str, Any]],
-                      custom_path: str = "0") -> None:
+def create_single_m3u(channel_folder_path: str, data: List[Dict[str, Any]], custom_path: str) -> None:
     _ensure_dir(channel_folder_path)
     master_path = os.path.join(channel_folder_path, f"{custom_path}.m3u")
-
     lines: List[str] = ["#EXTM3U"]
-    for serie in (data or []):
-        series_name = (serie.get("name") or "Bilinmeyen Seri").strip()
-        series_logo = (serie.get("img") or "").strip()
-        episodes = serie.get("episodes") or []
+    for item in (data or []):
+        item_name = (item.get("name") or "Bilinmeyen İçerik").strip()
+        item_logo = (item.get("img") or "").strip()
+        episodes = item.get("episodes") or []
         for ep in episodes:
             stream = ep.get("stream_url")
             if not stream:
                 continue
             ep_name = ep.get("name") or "Bölüm"
-            logo_for_line = series_logo or ep.get("img") or ""
-            group = series_name.replace('"', "'")
+            logo_for_line = item_logo or ep.get("img") or ""
+            group = item_name.replace('"', "'")
             lines.append(f'#EXTINF:-1 tvg-logo="{logo_for_line}" group-title="{group}",{ep_name}')
             lines.append(stream)
-
     _atomic_write(master_path, "\n".join(lines) + "\n")
 
 # ============================
-# ATV SCRAPER (GÜNCELLENMİŞ)
+# ATV SCRAPER (YENİ VE GÜÇLENDİRİLMİŞ)
 # ============================
 
 BASE_URL = "https://www.atv.com.tr/"
-SERIES_LIST_URL = urljoin(BASE_URL, "diziler")
+SERIES_URL = urljoin(BASE_URL, "diziler")
+PROGRAMS_URL = urljoin(BASE_URL, "programlar")
 STREAM_API_URL = "https://vms.atv.com.tr/vms/api/Player/GetVideoPlayer"
 
-REQUEST_TIMEOUT = 20
+REQUEST_TIMEOUT = 25
 REQUEST_PAUSE = 0.1
 BACKOFF_FACTOR = 0.5
 MAX_RETRIES = 5
 
 DEFAULT_HEADERS = {
     "Referer": BASE_URL,
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/125.0.0.0 Safari/537.36"
-    ),
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
 }
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-8s | %(message)s",
-    datefmt="%H:%M:%S",
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)-8s | %(message)s", datefmt="%H:%M:%S")
 log = logging.getLogger("atv-scraper")
 
 SESSION = requests.Session()
-retries = Retry(
-    total=MAX_RETRIES,
-    backoff_factor=BACKOFF_FACTOR,
-    status_forcelist=(429, 500, 502, 503, 504),
-    allowed_methods=frozenset(["GET"]),
-    raise_on_status=False,
-)
+retries = Retry(total=MAX_RETRIES, backoff_factor=BACKOFF_FACTOR, status_forcelist=(429, 500, 502, 503, 504))
 SESSION.mount("https://", HTTPAdapter(max_retries=retries))
-SESSION.mount("http://", HTTPAdapter(max_retries=retries))
 SESSION.headers.update(DEFAULT_HEADERS)
 
-def get_soup(url: str, params: Optional[Dict[str, Any]] = None) -> Optional[BeautifulSoup]:
+def get_soup(url: str) -> Optional[BeautifulSoup]:
     time.sleep(REQUEST_PAUSE)
     try:
-        r = SESSION.get(url, timeout=REQUEST_TIMEOUT, params=params)
+        r = SESSION.get(url, timeout=REQUEST_TIMEOUT)
         r.raise_for_status()
         return BeautifulSoup(r.content, "html.parser")
     except Exception as e:
         log.warning("GET %s hatası: %s", url, e)
         return None
 
-def get_json(url: str, params: Optional[Dict[str, Any]] = None) -> Optional[Dict[str, Any]]:
+def get_json(url: str, params: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     time.sleep(REQUEST_PAUSE)
     try:
         r = SESSION.get(url, timeout=REQUEST_TIMEOUT, params=params)
         r.raise_for_status()
         return r.json()
-    except (requests.exceptions.JSONDecodeError, Exception) as e:
+    except Exception as e:
         log.warning("JSON %s hatası: %s", url, e)
         return None
 
-def get_all_programs() -> List[Dict[str, str]]:
-    """'atv.com.tr/diziler' sayfasından tüm dizilerin listesini alır."""
-    log.info("Dizi listesi alınıyor...")
-    all_programs: List[Dict[str, str]] = []
-    soup = get_soup(SERIES_LIST_URL)
+def get_content_list(page_url: str, content_type: str) -> List[Dict[str, str]]:
+    """Verilen URL'den (diziler/programlar) içerik listesini çeker."""
+    log.info("%s listesi alınıyor...", content_type.capitalize())
+    content_list: List[Dict[str, str]] = []
+    soup = get_soup(page_url)
     if not soup:
-        log.error("Dizi listesi sayfası alınamadı.")
-        return all_programs
+        log.error("%s listesi sayfası alınamadı.", content_type.capitalize())
+        return content_list
 
-    # GÜNCELLENDİ: Sitenin yeni HTML yapısına göre doğru seçici kullanıldı.
-    program_boxes = soup.select("div.brand-item a")
-    for a_tag in program_boxes:
+    # SİTENİN YENİ YAPISINA UYGUN SEÇİCİ: 'article' etiketleri
+    items = soup.select("article.widget-item a")
+    for a_tag in items:
         img_tag = a_tag.find("img")
-        
-        if not (a_tag and a_tag.get("href") and img_tag):
+        if not (a_tag.get("href") and img_tag):
             continue
 
-        program_url = urljoin(BASE_URL, a_tag["href"])
-        program_name = img_tag.get("alt", "İsimsiz Program").strip()
-        program_img = ""
-        if img_tag:
-            program_img = img_tag.get("data-src") or img_tag.get("src") or ""
-            program_img = urljoin(BASE_URL, program_img)
-
-        all_programs.append({"name": program_name, "url": program_url, "img": program_img})
+        url = urljoin(BASE_URL, a_tag["href"])
+        name = img_tag.get("alt", "İsimsiz İçerik").strip()
+        img = urljoin(BASE_URL, img_tag.get("data-src") or img_tag.get("src") or "")
         
-    log.info("%d adet dizi bulundu.", len(all_programs))
-    return all_programs
+        content_list.append({"name": name, "url": url, "img": img, "type": content_type})
+    
+    log.info("%d adet %s bulundu.", len(content_list), content_type)
+    return content_list
 
-def get_episodes_for_program(program_url: str) -> List[Dict[str, str]]:
-    """Bir dizinin 'bölümler' sayfasından tüm bölümleri alır."""
-    episodes_url = urljoin(program_url + "/", "bolumler")
+def get_episodes_for_content(content_url: str) -> List[Dict[str, str]]:
+    """Bir içeriğin 'bölümler' sayfasından tüm bölümleri alır."""
+    episodes_url = urljoin(content_url.rstrip('/') + "/", "bolumler")
     all_episodes: List[Dict[str, str]] = []
     soup = get_soup(episodes_url)
     if not soup:
         return all_episodes
 
-    # GÜNCELLENDİ: Bölümler sayfasının yeni HTML yapısına uygun seçici.
-    episode_items = soup.select("div.widget-item a")
-    for a_tag in episode_items:
+    items = soup.select("article.widget-item a")
+    for a_tag in items:
         img_tag = a_tag.find("img")
         name_div = a_tag.select_one("div.name")
-
-        if not (a_tag and a_tag.get("href") and name_div):
+        if not (a_tag.get("href") and name_div):
             continue
 
         ep_url = urljoin(BASE_URL, a_tag["href"])
         ep_name = name_div.get_text(strip=True)
-        ep_img = ""
-        if img_tag:
-            ep_img = img_tag.get("data-src") or img_tag.get("src") or ""
-            ep_img = urljoin(BASE_URL, ep_img)
-
+        ep_img = urljoin(BASE_URL, img_tag.get("data-src") or img_tag.get("src") or "")
+        
         all_episodes.append({"name": ep_name, "url": ep_url, "img": ep_img})
     return all_episodes
 
 def get_stream_url(episode_url: str) -> Optional[str]:
     """Bölüm sayfasından video ID'sini alıp API'den stream URL'sini çeker."""
     soup = get_soup(episode_url)
-    if not soup:
-        return None
+    if not soup: return None
 
-    video_container = soup.find("div", {"id": "video-container"})
-    if not (video_container and video_container.get("data-videoid")):
+    video_container = soup.find("div", {"id": "video-container", "data-videoid": True})
+    if not video_container:
         log.warning("Video ID bulunamadı: %s", episode_url)
         return None
 
     video_id = video_container["data-videoid"]
-    
     api_response = get_json(STREAM_API_URL, params={"id": video_id})
     if not api_response:
         log.warning("API'den stream URL alınamadı, Video ID: %s", video_id)
         return None
 
     try:
-        stream_url = api_response["data"]["video"]["url"]
-        return stream_url
+        return api_response["data"]["video"]["url"]
     except (KeyError, TypeError):
         log.warning("API cevabında stream URL bulunamadı, Video ID: %s", video_id)
         return None
 
-def run(start: int = 0, end: int = 0) -> Dict[str, Any]:
-    output: List[Dict[str, Any]] = []
-    programs_list = get_all_programs()
-    if not programs_list:
-        log.error("Hiç program bulunamadı. İşlem durduruldu.")
-        return {"programs": []}
+def run(start: int = 0, end: int = 0) -> List[Dict[str, Any]]:
+    diziler = get_content_list(SERIES_URL, "dizi")
+    programlar = get_content_list(PROGRAMS_URL, "program")
+    
+    all_content = diziler + programlar
+    log.info("Toplam %d içerik (dizi/program) bulundu. İşleme başlanıyor.", len(all_content))
 
-    end_index = len(programs_list) if end == 0 else min(end, len(programs_list))
+    if not all_content:
+        log.error("Hiç içerik bulunamadı. İşlem durduruldu.")
+        return []
+
+    output: List[Dict[str, Any]] = []
+    end_index = len(all_content) if end == 0 else min(end, len(all_content))
     start_index = max(0, start)
 
-    for i in tqdm(range(start_index, end_index), desc="Programlar"):
-        program = programs_list[i]
-        log.info("[%d/%d] %s", i + 1, end_index, program.get("name", ""))
+    for i in tqdm(range(start_index, end_index), desc="İçerikler"):
+        content = all_content[i]
+        log.info("[%d/%d] %s (%s)", i + 1, end_index, content["name"], content["type"].upper())
 
-        episodes = get_episodes_for_program(program["url"])
+        episodes = get_episodes_for_content(content["url"])
         if not episodes:
-            log.warning("  -> Bölüm bulunamadı: %s", program.get("name"))
+            log.warning("  -> Bölüm bulunamadı: %s", content["name"])
             continue
 
-        temp_program = dict(program)
-        temp_program["episodes"] = []
+        temp_content = dict(content)
+        temp_content["episodes"] = []
 
         for ep in tqdm(episodes, desc="   Bölümler", leave=False):
             stream_url = get_stream_url(ep["url"])
             if stream_url:
                 temp_episode = dict(ep)
                 temp_episode["stream_url"] = stream_url
-                temp_program["episodes"].append(temp_episode)
+                temp_content["episodes"].append(temp_episode)
 
-        if temp_program["episodes"]:
-            output.append(temp_program)
+        if temp_content["episodes"]:
+            output.append(temp_content)
 
-    return {"programs": output}
+    return output
 
-def save_outputs_only_m3u(data: Dict[str, Any]) -> None:
-    """Sadece M3U dosyaları üretir."""
-    programs = data.get("programs", [])
-    if not programs:
+def save_outputs(data: List[Dict[str, Any]]) -> None:
+    """Tüm M3U dosyalarını ilgili klasörlere ve birleşik olarak kaydeder."""
+    if not data:
         log.warning("Kaydedilecek veri bulunamadı. M3U oluşturulmadı.")
         return
     try:
-        create_single_m3u(ALL_M3U_DIR, programs, ALL_M3U_NAME)
-        create_m3us(SERIES_M3U_DIR, programs, master=SERIES_MASTER)
-        log.info("M3U dosyaları başarıyla oluşturuldu.")
+        # 1. Ayrı listeler oluştur
+        diziler_data = [item for item in data if item.get("type") == "dizi"]
+        programlar_data = [item for item in data if item.get("type") == "program"]
+
+        # 2. Kategori bazlı M3U dosyalarını kendi klasörlerine kaydet
+        if diziler_data:
+            create_m3us_for_category(DIZILER_M3U_DIR, diziler_data)
+            log.info("%d dizi için M3U dosyaları '%s' klasörüne oluşturuldu.", len(diziler_data), DIZILER_M3U_DIR)
+        
+        if programlar_data:
+            create_m3us_for_category(PROGRAMLAR_M3U_DIR, programlar_data)
+            log.info("%d program için M3U dosyaları '%s' klasörüne oluşturuldu.", len(programlar_data), PROGRAMLAR_M3U_DIR)
+
+        # 3. Tüm içeriği tek bir ana dosyada birleştir
+        create_single_m3u(ALL_M3U_DIR, data, ALL_M3U_NAME)
+        log.info("Tüm içerikleri içeren birleşik M3U dosyası (%s.m3u) oluşturuldu.", ALL_M3U_NAME)
+
     except Exception as e:
-        log.error("M3U oluşturma hatası: %s", e)
+        log.error("M3U oluşturma sırasında kritik hata: %s", e, exc_info=True)
 
 def parse_args(argv: List[str]) -> Tuple[int, int]:
     start, end = 0, 0
     if len(argv) >= 2:
-        try:
-            end = int(argv[1])
-        except Exception:
-            pass
+        try: end = int(argv[1])
+        except Exception: pass
     if len(argv) >= 3:
         try:
             start = int(argv[1])
             end = int(argv[2])
-        except Exception:
-            pass
+        except Exception: pass
     return start, end
 
 def main():
     start, end = parse_args(sys.argv)
     data = run(start=start, end=end)
-    save_outputs_only_m3u(data)
+    save_outputs(data)
 
 if __name__ == "__main__":
     main()
