@@ -41,3 +41,4 @@ jobs:
           git add DDIZI/DDIZI.m3u DDIZI/diziler/*.m3u || true
           git commit -m "Update DDIZI M3U files [skip ci]" || echo "No changes to commit"
           git push
+ 
