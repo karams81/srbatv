@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ATV.com.tr scraper (yalnızca M3U üretir)
+ATV.com.tr scraper (yalnızca M3U üretir) - GÜNCELLENMİŞ SÜRÜM
 - ATV.m3u       → bu .py dosyasının olduğu klasöre
 - programlar/* → her dizi için ayrı M3U (aynı klasör altındaki 'programlar' klasörüne)
 
@@ -16,7 +16,6 @@ import os
 import sys
 import time
 import logging
-import json
 from pathlib import Path
 from typing import List, Tuple, Dict, Any, Optional
 from urllib.parse import urljoin
@@ -38,7 +37,7 @@ ALL_M3U_NAME = "ATV"
 
 # Dizi bazlı listeler: ./programlar/*.m3u
 SERIES_M3U_DIR = str(BASE_DIR / "programlar")
-SERIES_MASTER = False  # True yaparsan ./programlar/0.m3u da üretir
+SERIES_MASTER = False
 
 # ============================
 # M3U YARDIMCILARI (Değişiklik Gerekmiyor)
@@ -121,7 +120,7 @@ def create_single_m3u(channel_folder_path: str,
     _atomic_write(master_path, "\n".join(lines) + "\n")
 
 # ============================
-# ATV SCRAPER
+# ATV SCRAPER (GÜNCELLENMİŞ)
 # ============================
 
 BASE_URL = "https://www.atv.com.tr/"
@@ -190,25 +189,23 @@ def get_all_programs() -> List[Dict[str, str]]:
         log.error("Dizi listesi sayfası alınamadı.")
         return all_programs
 
-    # Sayfadaki her bir dizi kutusunu bul
-    program_boxes = soup.select("div.col-md-3.col-sm-6.col-xs-12")
-    for box in program_boxes:
-        a_tag = box.find("a")
-        img_tag = box.find("img")
-        name_div = box.select_one("div.name")
-
-        if not (a_tag and a_tag.get("href") and name_div):
+    # GÜNCELLENDİ: Sitenin yeni HTML yapısına göre doğru seçici kullanıldı.
+    program_boxes = soup.select("div.brand-item a")
+    for a_tag in program_boxes:
+        img_tag = a_tag.find("img")
+        
+        if not (a_tag and a_tag.get("href") and img_tag):
             continue
 
         program_url = urljoin(BASE_URL, a_tag["href"])
-        program_name = name_div.get_text(strip=True)
+        program_name = img_tag.get("alt", "İsimsiz Program").strip()
         program_img = ""
         if img_tag:
-            # Önce 'data-src', sonra 'src' denenir (lazy loading için)
             program_img = img_tag.get("data-src") or img_tag.get("src") or ""
             program_img = urljoin(BASE_URL, program_img)
 
         all_programs.append({"name": program_name, "url": program_url, "img": program_img})
+        
     log.info("%d adet dizi bulundu.", len(all_programs))
     return all_programs
 
@@ -220,12 +217,11 @@ def get_episodes_for_program(program_url: str) -> List[Dict[str, str]]:
     if not soup:
         return all_episodes
 
-    # Bölüm listesindeki her bir bölüm kutusunu bul
-    episode_items = soup.select("div.box-item")
-    for item in episode_items:
-        a_tag = item.find("a")
-        img_tag = item.find("img")
-        name_div = item.select_one("div.name")
+    # GÜNCELLENDİ: Bölümler sayfasının yeni HTML yapısına uygun seçici.
+    episode_items = soup.select("div.widget-item a")
+    for a_tag in episode_items:
+        img_tag = a_tag.find("img")
+        name_div = a_tag.select_one("div.name")
 
         if not (a_tag and a_tag.get("href") and name_div):
             continue
@@ -246,7 +242,6 @@ def get_stream_url(episode_url: str) -> Optional[str]:
     if not soup:
         return None
 
-    # Video oynatıcının ID'sini HTML'den bul
     video_container = soup.find("div", {"id": "video-container"})
     if not (video_container and video_container.get("data-videoid")):
         log.warning("Video ID bulunamadı: %s", episode_url)
@@ -254,13 +249,11 @@ def get_stream_url(episode_url: str) -> Optional[str]:
 
     video_id = video_container["data-videoid"]
     
-    # ATV'nin video API'sine istek at
     api_response = get_json(STREAM_API_URL, params={"id": video_id})
     if not api_response:
         log.warning("API'den stream URL alınamadı, Video ID: %s", video_id)
         return None
 
-    # JSON cevabından video URL'sini ayıkla
     try:
         stream_url = api_response["data"]["video"]["url"]
         return stream_url
@@ -278,7 +271,6 @@ def run(start: int = 0, end: int = 0) -> Dict[str, Any]:
     end_index = len(programs_list) if end == 0 else min(end, len(programs_list))
     start_index = max(0, start)
 
-    # Belirlenen aralıktaki programlar için döngü
     for i in tqdm(range(start_index, end_index), desc="Programlar"):
         program = programs_list[i]
         log.info("[%d/%d] %s", i + 1, end_index, program.get("name", ""))
@@ -320,13 +312,11 @@ def parse_args(argv: List[str]) -> Tuple[int, int]:
     start, end = 0, 0
     if len(argv) >= 2:
         try:
-            # Sadece bir sayı verilirse, bu 'end' (limit) olarak kabul edilir.
             end = int(argv[1])
         except Exception:
             pass
     if len(argv) >= 3:
         try:
-            # İki sayı verilirse, start ve end olarak kabul edilir.
             start = int(argv[1])
             end = int(argv[2])
         except Exception:
