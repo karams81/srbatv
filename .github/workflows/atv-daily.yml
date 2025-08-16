@@ -1,0 +1,48 @@
+name: ATV daily
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # Her gün TR saatiyle 09:00
+  workflow_dispatch:       # Manuel tetikleme izni
+
+permissions:
+  contents: write          # Repo'ya commit/push yapabilmek için gerekli izin
+
+jobs:
+  run-atv:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360   # Maksimum çalışma süresi (6 saat)
+    steps:
+      # 1. Adım: Repoyu klonla
+      - name: Check out repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      # 2. Adım: Python ortamını kur
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+          # requirements.txt dosyasının yolunu doğru belirttiğinizden emin olun
+          cache-dependency-path: "ATV/requirements.txt"
+
+      # 3. Adım: Gerekli Python kütüphanelerini yükle
+      - name: Install dependencies
+        # Eğer requirements.txt ATV klasöründeyse bu satırı kullanın
+        run: pip install -r ATV/requirements.txt
+
+      # 4. Adım: ATV scraper script'ini çalıştır
+      - name: Run ATV script
+        run: python ATV/atv.py
+
+      # 5. Adım: Oluşturulan M3U dosyalarını repoya commit'le
+      - name: Commit generated M3U files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # ATV klasörü altındaki M3U dosyalarını ekle
+          git add ATV/ATV.m3u ATV/programlar/*.m3u || true
+          git commit -m "Update ATV M3U files [skip ci]" || echo "No changes to commit"
+          git push
