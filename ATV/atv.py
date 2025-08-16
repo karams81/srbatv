@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+# -*- aoding: utf-8 -*-
 
 """
-ATV.com.tr Scraper (Diziler ve Programlar) - DAYANIKLI VE SABIRLI NİHAİ SÜRÜM
-Bu script, Playwright kütüphanesi kullanarak gerçek bir tarayıcıyı
-otomatize eder. GitHub Actions gibi yavaş veya kısıtlı ağ koşullarında
-çalışmak üzere artırılmış zaman aşımları ve daha sağlam bekleme
-stratejileri ile donatılmıştır.
+ATV.com.tr Scraper (Diziler ve Programlar) - ENGEL AŞAN NİHAİ SÜRÜM
+Bu script, Playwright kullanarak gerçek bir tarayıcıyı otomatize eder.
+Sayfalar açıldığında çıkan Çerez Onay Ekranı (Cookie Consent) gibi engelleri
+otomatik olarak bularak tıklar ve ardından içeriği çeker. Bu, en güvenilir
+ve kalıcı çözümdür.
 """
 
 import os
@@ -37,9 +37,9 @@ DIZILER_PAGE_URL = urljoin(BASE_URL, "diziler")
 PROGRAMLAR_PAGE_URL = urljoin(BASE_URL, "programlar")
 STREAM_API_URL = "https://vms.atv.com.tr/vms/api/Player/GetVideoPlayer"
 
-# GITHUB ACTIONS İÇİN ARTIRILMIŞ ZAMAN AŞIMLARI (milisanİye)
-PAGE_TIMEOUT = 120000  # 120 saniye (2 dakika)
-SELECTOR_TIMEOUT = 120000 # 120 saniye (2 dakika)
+# GITHUB ACTIONS İÇİN MAKSİMUM ZAMAN AŞIMLARI (milisanİye)
+PAGE_TIMEOUT = 180000  # 180 saniye (3 dakika)
+SELECTOR_TIMEOUT = 180000 # 180 saniye (3 dakika)
 
 # Loglama ayarları
 logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)-8s | %(message)s", datefmt="%H:%M:%S")
@@ -97,22 +97,43 @@ def create_single_m3u(channel_folder_path: str, data: List[Dict[str, Any]], cust
 
 
 # ============================
-# 3. VERİ ÇEKME FONKSİYONLARI (DAYANIKLI HALE GETİRİLDİ)
+# 3. VERİ ÇEKME FONKSİYONLARI (ENGEL AŞMA ÖZELLİKLİ)
 # ============================
+
+def handle_consent(page: Page) -> None:
+    """Sayfadaki Çerez Onay Ekranını bulur ve kapatır."""
+    consent_button_selector = "#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll"
+    try:
+        log.info("Çerez Onay Ekranı (engel) kontrol ediliyor...")
+        button = page.locator(consent_button_selector).first
+        if button.is_visible(timeout=15000): # 15 saniye içinde görünürse
+            log.info("-> Onay ekranı bulundu, 'Tümünü Kabul Et' butonuna tıklanıyor...")
+            button.click()
+            page.wait_for_timeout(2000) # Tıklama sonrası sayfanın toparlanması için kısa bekleme
+            log.info("-> Engel başarıyla kaldırıldı.")
+        else:
+            log.info("-> Onay ekranı bulunamadı, devam ediliyor.")
+    except PlaywrightTimeoutError:
+        log.info("-> Onay ekranı belirtilen sürede çıkmadı, devam ediliyor.")
+    except Exception as e:
+        log.warning("-> Onay ekranı işlenirken bir hata oluştu: %s", e)
 
 def get_content_list(page: Page, url: str, content_type: str) -> List[Dict[str, str]]:
     """Playwright kullanarak verilen sayfadaki tüm içerikleri (dizi/program) çeker."""
-    log.info("'%s' sayfasından '%s' listesi çekiliyor (Max %d saniye bekleme süresi)...", url, content_type, PAGE_TIMEOUT/1000)
+    log.info("'%s' sayfasından '%s' listesi çekiliyor...", url, content_type)
     content_list = []
     try:
-        # Daha güvenilir bekleme stratejisi: networkidle
-        page.goto(url, timeout=PAGE_TIMEOUT, wait_until="networkidle")
+        page.goto(url, timeout=PAGE_TIMEOUT, wait_until="domcontentloaded")
+        handle_consent(page) # KRİTİK ADIM: İçeriği aramadan önce engeli kaldır
+        
+        log.info("İçerik listesinin yüklenmesi bekleniyor...")
+        page.wait_for_selector("article.widget-item a", timeout=SELECTOR_TIMEOUT)
         
         soup = BeautifulSoup(page.content(), "html.parser")
         items = soup.select("article.widget-item a")
         
         if not items:
-            log.warning("-> Sayfa yüklendi ancak '%s' için içerik bulunamadı. Sayfa yapısı değişmiş olabilir.", content_type)
+            log.warning("-> Sayfa yüklendi ancak '%s' için içerik bulunamadı.", content_type)
             return []
 
         for a_tag in items:
@@ -128,7 +149,7 @@ def get_content_list(page: Page, url: str, content_type: str) -> List[Dict[str, 
         log.info("-> Başarılı: %d adet %s bulundu.", len(content_list), content_type)
         return content_list
     except PlaywrightTimeoutError:
-        log.error("-> ZAMAN AŞIMI! Sayfa %d saniyede yüklenemedi: %s", PAGE_TIMEOUT / 1000, url)
+        log.error("-> ZAMAN AŞIMI! Sayfa veya içerik %d saniyede yüklenemedi: %s", PAGE_TIMEOUT / 1000, url)
         return []
     except Exception as e:
         log.error("-> '%s' listesi çekilirken beklenmedik hata: %s", content_type, e)
@@ -139,14 +160,12 @@ def get_episodes_and_streams(page: Page, content_url: str, session: requests.Ses
     episodes_url = urljoin(content_url.rstrip('/') + "/", "bolumler")
     processed_episodes = []
     try:
-        page.goto(episodes_url, timeout=PAGE_TIMEOUT, wait_until="networkidle")
+        page.goto(episodes_url, timeout=PAGE_TIMEOUT, wait_until="domcontentloaded")
+        handle_consent(page)
+        page.wait_for_selector("article.widget-item a", timeout=SELECTOR_TIMEOUT)
         
         soup = BeautifulSoup(page.content(), "html.parser")
         episode_links = soup.select("article.widget-item a")
-
-        if not episode_links:
-            log.warning("-> Bölüm sayfasında link bulunamadı: %s", episodes_url)
-            return []
 
         for ep_link in tqdm(episode_links, desc=f"   -> Bölümler", leave=False):
             ep_name_div = ep_link.select_one("div.name")
@@ -156,7 +175,7 @@ def get_episodes_and_streams(page: Page, content_url: str, session: requests.Ses
             ep_name = ep_name_div.get_text(strip=True)
             
             try:
-                page.goto(ep_url, timeout=PAGE_TIMEOUT, wait_until="networkidle")
+                page.goto(ep_url, timeout=PAGE_TIMEOUT, wait_until="domcontentloaded")
                 video_container = page.wait_for_selector("div#video-container[data-videoid]", timeout=SELECTOR_TIMEOUT)
                 video_id = video_container.get_attribute("data-videoid")
                 
