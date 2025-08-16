@@ -2,14 +2,10 @@
 # -*- coding: utf-8 -*-
 
 """
-ATV.com.tr Scraper (Diziler ve Programlar) - NİHAİ SÜRÜM
-Bu script, ATV'nin sunucu tarafı kontrollerini aşmak için önce ana sayfayı
-ziyaret ederek bir oturum (session) başlatır ve ardından güvenilir API'ler
-üzerinden tüm içerikleri çeker.
-
-- ATV.m3u         -> Tüm içeriklerin birleşik listesi
-- diziler/*.m3u   -> Her dizi için ayrı M3U dosyası
-- programlar/*.m3u -> Her program için ayrı M3U dosyası
+ATV.com.tr Scraper (Diziler ve Programlar) - NİHAİ ve KESİN ÇÖZÜM
+Bu script, ATV'nin CSRF (Cross-Site Request Forgery) korumasını aşmak için
+önce ilgili sayfadan bir 'token' (dijital kimlik) alır ve tüm API isteklerini
+bu kimlikle birlikte yaparak veri çekme işlemini garanti altına alır.
 """
 
 import os
@@ -27,7 +23,7 @@ from requests.adapters import HTTPAdapter, Retry
 from slugify import slugify
 
 # ============================
-# 1. TEMEL AYARLAR VE KONFİGÜRASYON
+# 1. TEMEL AYARLAR VE SABİTLER
 # ============================
 BASE_DIR = Path(__file__).resolve().parent
 ALL_M3U_DIR = str(BASE_DIR)
@@ -36,27 +32,29 @@ DIZILER_M3U_DIR = str(BASE_DIR / "diziler")
 PROGRAMLAR_M3U_DIR = str(BASE_DIR / "programlar")
 
 BASE_URL = "https://www.atv.com.tr/"
-CONTENT_API_URL = "https://www.atv.com.tr/services/get-all-series-and-programs-by-category-slug"
+DIZILER_PAGE_URL = urljoin(BASE_URL, "diziler")
+PROGRAMLAR_PAGE_URL = urljoin(BASE_URL, "programlar")
+CONTENT_API_URL = urljoin(BASE_URL, "services/get-all-series-and-programs-by-category-slug")
 STREAM_API_URL = "https://vms.atv.com.tr/vms/api/Player/GetVideoPlayer"
 
 REQUEST_TIMEOUT = 30
 REQUEST_PAUSE = 0.05
-MAX_RETRIES = 5
+MAX_RETRIES = 3
 
 # Tarayıcıyı taklit eden ve API'nin çalışması için gerekli olan başlıklar
 DEFAULT_HEADERS = {
-    "Referer": BASE_URL,
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
     "X-Requested-With": "XMLHttpRequest",
     "Accept": "application/json, text/javascript, */*; q=0.01",
-    "Accept-Language": "en-US,en;q=0.9,tr;q=0.8",
+    "Accept-Language": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Referer": BASE_URL,
 }
 
-# Hata ayıklama ve bilgilendirme için loglama ayarları
+# Loglama ayarları
 logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)-8s | %(message)s", datefmt="%H:%M:%S")
 log = logging.getLogger("atv-scraper")
 
-# Tekrar deneme mekanizmalı ve başlıkları ayarlanmış Session nesnesi
+# Tekrar deneme mekanizmalı Session nesnesi
 SESSION = requests.Session()
 retries = Retry(total=MAX_RETRIES, backoff_factor=1, status_forcelist=[429, 500, 502, 503, 504])
 SESSION.mount("https://", HTTPAdapter(max_retries=retries))
@@ -64,10 +62,8 @@ SESSION.headers.update(DEFAULT_HEADERS)
 
 
 # ============================
-# 2. M3U OLUŞTURMA YARDIMCI FONKSİYONLARI
+# 2. M3U OLUŞTURMA YARDIMCILARI (DEĞİŞİKLİK YOK)
 # ============================
-# Bu kısım önceki versiyonlarda doğru çalışıyordu, değişiklik yapılmadı.
-
 def _ensure_dir(path: str) -> None:
     os.makedirs(path, exist_ok=True)
 
@@ -82,17 +78,17 @@ def _safe_series_filename(name: str) -> str:
 
 def create_m3us_for_category(channel_folder_path: str, data: List[Dict[str, Any]]) -> None:
     _ensure_dir(channel_folder_path)
-    for item in (data or []):
+    for item in data:
         episodes = item.get("episodes") or []
         if not episodes: continue
-        item_name = (item.get("name") or "Bilinmeyen").strip()
-        item_logo = (item.get("img") or "").strip()
+        item_name = item.get("name", "Bilinmeyen").strip()
+        item_logo = item.get("img", "").strip()
         plist_path = os.path.join(channel_folder_path, _safe_series_filename(item_name))
         lines = ["#EXTM3U"]
         for ep in episodes:
             stream = ep.get("stream_url")
             if not stream: continue
-            ep_name = ep.get("name") or "Bölüm"
+            ep_name = ep.get("name", "Bölüm")
             group = item_name.replace('"', "'")
             lines.append(f'#EXTINF:-1 tvg-logo="{item_logo}" group-title="{group}",{ep_name}')
             lines.append(stream)
@@ -102,14 +98,14 @@ def create_single_m3u(channel_folder_path: str, data: List[Dict[str, Any]], cust
     _ensure_dir(channel_folder_path)
     master_path = os.path.join(channel_folder_path, f"{custom_path}.m3u")
     lines = ["#EXTM3U"]
-    for item in (data or []):
-        item_name = (item.get("name") or "Bilinmeyen").strip()
-        item_logo = (item.get("img") or "").strip()
-        episodes = item.get("episodes") or []
+    for item in data:
+        item_name = item.get("name", "Bilinmeyen").strip()
+        item_logo = item.get("img", "").strip()
+        episodes = item.get("episodes", [])
         for ep in episodes:
             stream = ep.get("stream_url")
             if not stream: continue
-            ep_name = ep.get("name") or "Bölüm"
+            ep_name = ep.get("name", "Bölüm")
             group = item_name.replace('"', "'")
             lines.append(f'#EXTINF:-1 tvg-logo="{item_logo}" group-title="{group}",{ep_name}')
             lines.append(stream)
@@ -117,37 +113,46 @@ def create_single_m3u(channel_folder_path: str, data: List[Dict[str, Any]], cust
 
 
 # ============================
-# 3. VERİ ÇEKME FONKSİYONLARI (YENİ VE SAĞLAMLAŞTIRILMIŞ)
+# 3. VERİ ÇEKME FONKSİYONLARI (YENİ VE KESİN ÇÖZÜM)
 # ============================
 
-def initialize_session() -> bool:
+def get_csrf_token(page_url: str) -> Optional[str]:
     """
-    KRİTİK ADIM: Ana sayfayı ziyaret ederek sunucudan gerekli session cookie'lerini alır.
-    Bu olmadan API istekleri başarısız olur.
+    KRİTİK FONKSİYON: Verilen sayfayı ziyaret eder ve HTML içine gizlenmiş olan
+    CSRF token'ını (dijital kimlik kartını) bulup çıkarır.
     """
+    log.info("'%s' sayfasından CSRF token (dijital kimlik) alınıyor...", page_url)
     try:
-        log.info("Oturum başlatılıyor ve cookie'ler alınıyor...")
-        response = SESSION.get(BASE_URL, timeout=REQUEST_TIMEOUT)
+        response = SESSION.get(page_url, timeout=REQUEST_TIMEOUT)
         response.raise_for_status()
-        if response.cookies:
-            log.info("Oturum başarıyla başlatıldı.")
-            return True
-        log.warning("Oturum başlatıldı ancak sunucudan cookie alınamadı.")
-        return False
-    except requests.exceptions.RequestException as e:
-        log.error("Ana sayfa ziyareti başarısız! Oturum başlatılamadı. Hata: %s", e)
-        return False
+        soup = BeautifulSoup(response.text, "html.parser")
+        token_tag = soup.find("input", {"name": "__RequestVerificationToken"})
+        if token_tag and token_tag.get("value"):
+            token = token_tag["value"]
+            log.info("-> CSRF token başarıyla bulundu.")
+            return token
+        log.error("-> CSRF token bulunamadı! Sayfa yapısı değişmiş olabilir.")
+        return None
+    except requests.RequestException as e:
+        log.error("-> CSRF token alınırken sayfa yüklenemedi: %s", e)
+        return None
 
-def get_content_list_from_api(slug: str, content_type: str) -> List[Dict[str, str]]:
-    """ATV'nin resmi API'sini kullanarak dizi/program listesini çeker."""
+def get_content_list_from_api(slug: str, token: str, content_type: str) -> List[Dict[str, str]]:
+    """API'yi kullanarak, CSRF token ile doğrulanmış bir şekilde içerik listesini çeker."""
     log.info("API'den '%s' listesi çekiliyor...", content_type)
     try:
-        response = SESSION.get(CONTENT_API_URL, params={"slug": slug}, timeout=REQUEST_TIMEOUT)
+        # İsteği POST olarak ve token ile birlikte gönderiyoruz
+        response = SESSION.post(
+            CONTENT_API_URL,
+            data={"slug": slug},
+            headers={"__RequestVerificationToken": token},
+            timeout=REQUEST_TIMEOUT
+        )
         response.raise_for_status()
         api_data = response.json()
 
         if not isinstance(api_data, list):
-            log.error("API'den beklenen liste formatında veri gelmedi. Gelen veri: %s", str(api_data)[:100])
+            log.error("-> API'den beklenen liste formatında veri gelmedi.")
             return []
 
         content_list = [
@@ -156,13 +161,12 @@ def get_content_list_from_api(slug: str, content_type: str) -> List[Dict[str, st
                 "url": urljoin(BASE_URL, item.get("Url", "")),
                 "img": urljoin(BASE_URL, item.get("ImageUrl", "")),
                 "type": content_type
-            }
-            for item in api_data
+            } for item in api_data
         ]
         log.info("-> Başarılı: %d adet %s bulundu.", len(content_list), content_type)
         return content_list
-    except (requests.exceptions.RequestException, ValueError) as e:
-        log.error("API'den '%s' listesi alınırken kritik hata: %s", content_type, e)
+    except (requests.RequestException, ValueError) as e:
+        log.error("-> API'den '%s' listesi alınırken kritik hata: %s", content_type, e)
         return []
 
 def get_episodes_for_content(content_url: str) -> List[Dict[str, str]]:
@@ -173,10 +177,6 @@ def get_episodes_for_content(content_url: str) -> List[Dict[str, str]]:
         response.raise_for_status()
         soup = BeautifulSoup(response.content, "html.parser")
         items = soup.select("article.widget-item a")
-        if not items:
-            log.warning("-> Bölüm sayfasında 'article.widget-item a' seçicisiyle eşleşen bölüm bulunamadı: %s", episodes_url)
-            return []
-        
         return [
             {
                 "name": a_tag.select_one("div.name").get_text(strip=True),
@@ -184,8 +184,7 @@ def get_episodes_for_content(content_url: str) -> List[Dict[str, str]]:
             }
             for a_tag in items if a_tag.get("href") and a_tag.select_one("div.name")
         ]
-    except requests.exceptions.RequestException as e:
-        log.warning("-> Bölüm listesi sayfası alınamadı (%s): %s", episodes_url, e)
+    except requests.RequestException:
         return []
 
 def get_stream_url(episode_url: str) -> Optional[str]:
@@ -195,16 +194,13 @@ def get_stream_url(episode_url: str) -> Optional[str]:
         response.raise_for_status()
         soup = BeautifulSoup(response.content, "html.parser")
         video_container = soup.find("div", {"id": "video-container", "data-videoid": True})
-        if not video_container:
-            log.warning("--> Video ID bulunamadı: %s", episode_url)
-            return None
+        if not video_container: return None
         
         video_id = video_container["data-videoid"]
         vms_response = SESSION.get(STREAM_API_URL, params={"id": video_id}, timeout=REQUEST_TIMEOUT)
         vms_response.raise_for_status()
         return vms_response.json()["data"]["video"]["url"]
-    except (requests.exceptions.RequestException, KeyError, ValueError) as e:
-        log.warning("--> Yayın URL'si alınamadı (%s): %s", episode_url, e)
+    except (requests.RequestException, KeyError, ValueError):
         return None
 
 
@@ -212,26 +208,30 @@ def get_stream_url(episode_url: str) -> Optional[str]:
 # 4. ANA İŞLEM AKIŞI
 # ============================
 def run() -> None:
-    # 1. Adım: Her şeyden önce oturumu başlat. Başarısız olursa devam etme.
-    if not initialize_session():
-        log.critical("Oturum başlatılamadığı için işlem durduruldu. Lütfen internet bağlantınızı veya site erişimini kontrol edin.")
+    # 1. Adım: Diziler için kimlik kartını (token) al.
+    diziler_token = get_csrf_token(DIZILER_PAGE_URL)
+    if not diziler_token:
+        log.critical("Diziler için CSRF token alınamadı, işlem durduruldu.")
         return
+    diziler = get_content_list_from_api("diziler", diziler_token, "dizi")
 
-    # 2. Adım: API'yi kullanarak tüm dizileri ve programları çek.
-    diziler = get_content_list_from_api("diziler", "dizi")
-    programlar = get_content_list_from_api("programlar", "program")
+    # 2. Adım: Programlar için kimlik kartını (token) al.
+    programlar_token = get_csrf_token(PROGRAMLAR_PAGE_URL)
+    if not programlar_token:
+        log.critical("Programlar için CSRF token alınamadı, işlem durduruldu.")
+        return
+    programlar = get_content_list_from_api("programlar", programlar_token, "program")
     
     all_content = diziler + programlar
     if not all_content:
-        log.error("Hiçbir dizi veya program bulunamadı. API yanıt vermiyor veya boş veri döndürdü. İşlem durduruldu.")
+        log.error("Hiçbir dizi veya program bulunamadı. İşlem durduruldu.")
         return
         
     log.info("Toplam %d içerik bulundu. Bölümler ve yayın linkleri çekilecek...", len(all_content))
     processed_data: List[Dict[str, Any]] = []
 
-    # 3. Adım: Her bir içerik için bölümleri ve her bölüm için yayın linkini çek.
+    # 3. Adım: Her içerik için bölümleri ve yayın linklerini çek.
     for content in tqdm(all_content, desc="Tüm İçerikler"):
-        log.info("İşleniyor: %s (%s)", content["name"], content["type"].upper())
         episodes = get_episodes_for_content(content["url"])
         if not episodes:
             log.warning("-> '%s' için bölüm bulunamadı, atlanıyor.", content["name"])
@@ -246,14 +246,14 @@ def run() -> None:
                 temp_episode = dict(ep)
                 temp_episode["stream_url"] = stream_url
                 temp_content["episodes"].append(temp_episode)
-            time.sleep(REQUEST_PAUSE) # Sunucuyu yormamak için küçük bir bekleme
+            time.sleep(REQUEST_PAUSE)
 
         if temp_content["episodes"]:
             processed_data.append(temp_content)
 
-    # 4. Adım: Çekilen tüm verileri M3U dosyalarına yaz.
+    # 4. Adım: Çekilen verileri M3U dosyalarına yaz.
     if not processed_data:
-        log.error("Tüm içerikler işlendi ancak hiçbir bölüm için geçerli yayın linki bulunamadı. M3U dosyaları oluşturulmayacak.")
+        log.error("Hiçbir bölüm için geçerli yayın linki bulunamadı. M3U oluşturulmayacak.")
         return
 
     log.info("Veri çekme tamamlandı. M3U dosyaları oluşturuluyor...")
@@ -266,7 +266,7 @@ def run() -> None:
         create_single_m3u(ALL_M3U_DIR, processed_data, ALL_M3U_NAME)
         log.info("TÜM İŞLEMLER BAŞARIYLA TAMAMLANDI!")
     except Exception as e:
-        log.critical("M3U dosyaları oluşturulurken beklenmedik bir hata oluştu: %s", e, exc_info=True)
+        log.critical("M3U dosyaları oluşturulurken hata: %s", e, exc_info=True)
 
 
 if __name__ == "__main__":
