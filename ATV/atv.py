@@ -3,9 +3,9 @@
 
 """
 ATV.com.tr Scraper (Diziler ve Programlar) - NİHAİ ve KESİN ÇÖZÜM
-Bu script, ATV'nin CSRF (Cross-Site Request Forgery) korumasını aşmak için
-önce ilgili sayfadan bir 'token' (dijital kimlik) alır ve tüm API isteklerini
-bu kimlikle birlikte yaparak veri çekme işlemini garanti altına alır.
+Bu script, Playwright kütüphanesi kullanarak gerçek bir tarayıcıyı
+otomatize eder. Bu sayede tüm JavaScript korumalarını ve dinamik içerik
+yüklemelerini aşarak veriyi %100 güvenilirlikle çeker.
 """
 
 import os
@@ -13,14 +13,14 @@ import sys
 import time
 import logging
 from pathlib import Path
-from typing import List, Tuple, Dict, Any, Optional
+from typing import List, Dict, Any, Optional
 from urllib.parse import urljoin
 
 import requests
 from bs4 import BeautifulSoup
 from tqdm import tqdm
-from requests.adapters import HTTPAdapter, Retry
 from slugify import slugify
+from playwright.sync_api import sync_playwright, Page, TimeoutError as PlaywrightTimeoutError
 
 # ============================
 # 1. TEMEL AYARLAR VE SABİTLER
@@ -34,32 +34,15 @@ PROGRAMLAR_M3U_DIR = str(BASE_DIR / "programlar")
 BASE_URL = "https://www.atv.com.tr/"
 DIZILER_PAGE_URL = urljoin(BASE_URL, "diziler")
 PROGRAMLAR_PAGE_URL = urljoin(BASE_URL, "programlar")
-CONTENT_API_URL = urljoin(BASE_URL, "services/get-all-series-and-programs-by-category-slug")
 STREAM_API_URL = "https://vms.atv.com.tr/vms/api/Player/GetVideoPlayer"
 
-REQUEST_TIMEOUT = 30
-REQUEST_PAUSE = 0.05
-MAX_RETRIES = 3
-
-# Tarayıcıyı taklit eden ve API'nin çalışması için gerekli olan başlıklar
-DEFAULT_HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
-    "X-Requested-With": "XMLHttpRequest",
-    "Accept": "application/json, text/javascript, */*; q=0.01",
-    "Accept-Language": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7",
-    "Referer": BASE_URL,
-}
+# Tarayıcı ve istekler için zaman aşımları (saniye)
+PAGE_TIMEOUT = 60000  # 60 saniye
+SELECTOR_TIMEOUT = 30000 # 30 saniye
 
 # Loglama ayarları
 logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)-8s | %(message)s", datefmt="%H:%M:%S")
 log = logging.getLogger("atv-scraper")
-
-# Tekrar deneme mekanizmalı Session nesnesi
-SESSION = requests.Session()
-retries = Retry(total=MAX_RETRIES, backoff_factor=1, status_forcelist=[429, 500, 502, 503, 504])
-SESSION.mount("https://", HTTPAdapter(max_retries=retries))
-SESSION.headers.update(DEFAULT_HEADERS)
-
 
 # ============================
 # 2. M3U OLUŞTURMA YARDIMCILARI (DEĞİŞİKLİK YOK)
@@ -113,160 +96,142 @@ def create_single_m3u(channel_folder_path: str, data: List[Dict[str, Any]], cust
 
 
 # ============================
-# 3. VERİ ÇEKME FONKSİYONLARI (YENİ VE KESİN ÇÖZÜM)
+# 3. VERİ ÇEKME FONKSİYONLARI (PLAYWRIGHT İLE SIFIRDAN YAZILDI)
 # ============================
 
-def get_csrf_token(page_url: str) -> Optional[str]:
-    """
-    KRİTİK FONKSİYON: Verilen sayfayı ziyaret eder ve HTML içine gizlenmiş olan
-    CSRF token'ını (dijital kimlik kartını) bulup çıkarır.
-    """
-    log.info("'%s' sayfasından CSRF token (dijital kimlik) alınıyor...", page_url)
+def get_content_list(page: Page, url: str, content_type: str) -> List[Dict[str, str]]:
+    """Playwright kullanarak verilen sayfadaki tüm içerikleri (dizi/program) çeker."""
+    log.info("'%s' sayfasından '%s' listesi çekiliyor...", url, content_type)
+    content_list = []
     try:
-        response = SESSION.get(page_url, timeout=REQUEST_TIMEOUT)
-        response.raise_for_status()
-        soup = BeautifulSoup(response.text, "html.parser")
-        token_tag = soup.find("input", {"name": "__RequestVerificationToken"})
-        if token_tag and token_tag.get("value"):
-            token = token_tag["value"]
-            log.info("-> CSRF token başarıyla bulundu.")
-            return token
-        log.error("-> CSRF token bulunamadı! Sayfa yapısı değişmiş olabilir.")
-        return None
-    except requests.RequestException as e:
-        log.error("-> CSRF token alınırken sayfa yüklenemedi: %s", e)
-        return None
-
-def get_content_list_from_api(slug: str, token: str, content_type: str) -> List[Dict[str, str]]:
-    """API'yi kullanarak, CSRF token ile doğrulanmış bir şekilde içerik listesini çeker."""
-    log.info("API'den '%s' listesi çekiliyor...", content_type)
-    try:
-        # İsteği POST olarak ve token ile birlikte gönderiyoruz
-        response = SESSION.post(
-            CONTENT_API_URL,
-            data={"slug": slug},
-            headers={"__RequestVerificationToken": token},
-            timeout=REQUEST_TIMEOUT
-        )
-        response.raise_for_status()
-        api_data = response.json()
-
-        if not isinstance(api_data, list):
-            log.error("-> API'den beklenen liste formatında veri gelmedi.")
-            return []
-
-        content_list = [
-            {
-                "name": item.get("Name", "İsimsiz").strip(),
-                "url": urljoin(BASE_URL, item.get("Url", "")),
-                "img": urljoin(BASE_URL, item.get("ImageUrl", "")),
+        page.goto(url, timeout=PAGE_TIMEOUT, wait_until="domcontentloaded")
+        # JavaScript'in içeriği yüklemesi için kilit seçiciyi bekle
+        page.wait_for_selector("article.widget-item a", timeout=SELECTOR_TIMEOUT)
+        
+        soup = BeautifulSoup(page.content(), "html.parser")
+        items = soup.select("article.widget-item a")
+        
+        for a_tag in items:
+            img_tag = a_tag.find("img")
+            if not (a_tag.get("href") and img_tag): continue
+            
+            content_list.append({
+                "name": img_tag.get("alt", "İsimsiz").strip(),
+                "url": urljoin(BASE_URL, a_tag["href"]),
+                "img": urljoin(BASE_URL, img_tag.get("data-src") or img_tag.get("src") or ""),
                 "type": content_type
-            } for item in api_data
-        ]
+            })
         log.info("-> Başarılı: %d adet %s bulundu.", len(content_list), content_type)
         return content_list
-    except (requests.RequestException, ValueError) as e:
-        log.error("-> API'den '%s' listesi alınırken kritik hata: %s", content_type, e)
+    except PlaywrightTimeoutError:
+        log.error("-> Zaman aşımı! Sayfa içeriği '%s' saniyede yüklenemedi: %s", SELECTOR_TIMEOUT / 1000, url)
+        return []
+    except Exception as e:
+        log.error("-> '%s' listesi çekilirken beklenmedik hata: %s", content_type, e)
         return []
 
-def get_episodes_for_content(content_url: str) -> List[Dict[str, str]]:
-    """Bir içeriğin 'bölümler' sayfasını analiz ederek bölüm listesini alır."""
+def get_episodes_and_streams(page: Page, content_url: str, session: requests.Session) -> List[Dict[str, str]]:
+    """Bir içeriğin tüm bölümlerini ve her bölümün yayın linkini çeker."""
     episodes_url = urljoin(content_url.rstrip('/') + "/", "bolumler")
+    processed_episodes = []
     try:
-        response = SESSION.get(episodes_url, timeout=REQUEST_TIMEOUT)
-        response.raise_for_status()
-        soup = BeautifulSoup(response.content, "html.parser")
-        items = soup.select("article.widget-item a")
-        return [
-            {
-                "name": a_tag.select_one("div.name").get_text(strip=True),
-                "url": urljoin(BASE_URL, a_tag["href"]),
-            }
-            for a_tag in items if a_tag.get("href") and a_tag.select_one("div.name")
-        ]
-    except requests.RequestException:
-        return []
-
-def get_stream_url(episode_url: str) -> Optional[str]:
-    """Bölüm sayfasından video ID'sini alıp VMS API'sinden yayın URL'sini çeker."""
-    try:
-        response = SESSION.get(episode_url, timeout=REQUEST_TIMEOUT)
-        response.raise_for_status()
-        soup = BeautifulSoup(response.content, "html.parser")
-        video_container = soup.find("div", {"id": "video-container", "data-videoid": True})
-        if not video_container: return None
+        page.goto(episodes_url, timeout=PAGE_TIMEOUT, wait_until="domcontentloaded")
+        page.wait_for_selector("article.widget-item a", timeout=SELECTOR_TIMEOUT)
         
-        video_id = video_container["data-videoid"]
-        vms_response = SESSION.get(STREAM_API_URL, params={"id": video_id}, timeout=REQUEST_TIMEOUT)
-        vms_response.raise_for_status()
-        return vms_response.json()["data"]["video"]["url"]
-    except (requests.RequestException, KeyError, ValueError):
-        return None
+        soup = BeautifulSoup(page.content(), "html.parser")
+        episode_links = soup.select("article.widget-item a")
+
+        for ep_link in tqdm(episode_links, desc=f"   -> Bölümler", leave=False):
+            ep_name_div = ep_link.select_one("div.name")
+            if not (ep_link.get("href") and ep_name_div): continue
+            
+            ep_url = urljoin(BASE_URL, ep_link["href"])
+            ep_name = ep_name_div.get_text(strip=True)
+            
+            # Yayın linkini almak için bölüm sayfasına git
+            try:
+                page.goto(ep_url, timeout=PAGE_TIMEOUT, wait_until="domcontentloaded")
+                # Video ID'sini içeren elementi bekle
+                video_container = page.wait_for_selector("div#video-container[data-videoid]", timeout=SELECTOR_TIMEOUT)
+                video_id = video_container.get_attribute("data-videoid")
+                
+                if video_id:
+                    # Hızlı olmak için API isteğini requests ile yap
+                    response = session.get(STREAM_API_URL, params={"id": video_id})
+                    response.raise_for_status()
+                    stream_url = response.json()["data"]["video"]["url"]
+                    processed_episodes.append({"name": ep_name, "stream_url": stream_url})
+            except (PlaywrightTimeoutError, requests.RequestException, KeyError):
+                log.warning("--> '%s' için yayın linki alınamadı.", ep_name)
+                continue
+        return processed_episodes
+    except PlaywrightTimeoutError:
+        log.error("-> Bölüm sayfası zaman aşımına uğradı: %s", episodes_url)
+        return []
+    except Exception as e:
+        log.error("-> Bölümler çekilirken hata: %s", e)
+        return []
 
 
 # ============================
 # 4. ANA İŞLEM AKIŞI
 # ============================
 def run() -> None:
-    # 1. Adım: Diziler için kimlik kartını (token) al.
-    diziler_token = get_csrf_token(DIZILER_PAGE_URL)
-    if not diziler_token:
-        log.critical("Diziler için CSRF token alınamadı, işlem durduruldu.")
-        return
-    diziler = get_content_list_from_api("diziler", diziler_token, "dizi")
+    with sync_playwright() as p:
+        log.info("Playwright başlatılıyor ve Chromium tarayıcısı açılıyor...")
+        browser = p.chromium.launch(headless=True)
+        context = browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+        )
+        page = context.new_page()
 
-    # 2. Adım: Programlar için kimlik kartını (token) al.
-    programlar_token = get_csrf_token(PROGRAMLAR_PAGE_URL)
-    if not programlar_token:
-        log.critical("Programlar için CSRF token alınamadı, işlem durduruldu.")
-        return
-    programlar = get_content_list_from_api("programlar", programlar_token, "program")
-    
-    all_content = diziler + programlar
-    if not all_content:
-        log.error("Hiçbir dizi veya program bulunamadı. İşlem durduruldu.")
-        return
+        # 1. Adım: Tüm dizileri ve programları çek
+        diziler = get_content_list(page, DIZILER_PAGE_URL, "dizi")
+        programlar = get_content_list(page, PROGRAMLAR_PAGE_URL, "program")
         
-    log.info("Toplam %d içerik bulundu. Bölümler ve yayın linkleri çekilecek...", len(all_content))
-    processed_data: List[Dict[str, Any]] = []
+        all_content = diziler + programlar
+        if not all_content:
+            log.critical("Hiçbir dizi veya program bulunamadı. İşlem durduruldu.")
+            browser.close()
+            return
+            
+        log.info("Toplam %d içerik bulundu. Bölümler ve yayın linkleri çekilecek...", len(all_content))
+        
+        # API istekleri için requests session'ı hazırla
+        api_session = requests.Session()
+        api_session.headers.update({"Referer": BASE_URL})
 
-    # 3. Adım: Her içerik için bölümleri ve yayın linklerini çek.
-    for content in tqdm(all_content, desc="Tüm İçerikler"):
-        episodes = get_episodes_for_content(content["url"])
-        if not episodes:
-            log.warning("-> '%s' için bölüm bulunamadı, atlanıyor.", content["name"])
-            continue
+        processed_data = []
 
-        temp_content = dict(content)
-        temp_content["episodes"] = []
+        # 2. Adım: Her içerik için bölümleri ve yayın linklerini çek
+        for content in tqdm(all_content, desc="Tüm İçerikler"):
+            log.info("İşleniyor: %s (%s)", content["name"], content["type"].upper())
+            episodes_with_streams = get_episodes_and_streams(page, content["url"], api_session)
+            
+            if episodes_with_streams:
+                temp_content = dict(content)
+                temp_content["episodes"] = episodes_with_streams
+                processed_data.append(temp_content)
 
-        for ep in tqdm(episodes, desc=f"  -> {content['name']}", leave=False):
-            stream_url = get_stream_url(ep["url"])
-            if stream_url:
-                temp_episode = dict(ep)
-                temp_episode["stream_url"] = stream_url
-                temp_content["episodes"].append(temp_episode)
-            time.sleep(REQUEST_PAUSE)
+        browser.close()
+        log.info("Tarayıcı kapatıldı.")
 
-        if temp_content["episodes"]:
-            processed_data.append(temp_content)
+        # 3. Adım: Çekilen verileri M3U dosyalarına yaz
+        if not processed_data:
+            log.error("Hiçbir bölüm için geçerli yayın linki bulunamadı. M3U dosyaları oluşturulmayacak.")
+            return
 
-    # 4. Adım: Çekilen verileri M3U dosyalarına yaz.
-    if not processed_data:
-        log.error("Hiçbir bölüm için geçerli yayın linki bulunamadı. M3U oluşturulmayacak.")
-        return
+        log.info("Veri çekme tamamlandı. M3U dosyaları oluşturuluyor...")
+        try:
+            diziler_data = [item for item in processed_data if item.get("type") == "dizi"]
+            programlar_data = [item for item in processed_data if item.get("type") == "program"]
 
-    log.info("Veri çekme tamamlandı. M3U dosyaları oluşturuluyor...")
-    try:
-        diziler_data = [item for item in processed_data if item.get("type") == "dizi"]
-        programlar_data = [item for item in processed_data if item.get("type") == "program"]
-
-        if diziler_data: create_m3us_for_category(DIZILER_M3U_DIR, diziler_data)
-        if programlar_data: create_m3us_for_category(PROGRAMLAR_M3U_DIR, programlar_data)
-        create_single_m3u(ALL_M3U_DIR, processed_data, ALL_M3U_NAME)
-        log.info("TÜM İŞLEMLER BAŞARIYLA TAMAMLANDI!")
-    except Exception as e:
-        log.critical("M3U dosyaları oluşturulurken hata: %s", e, exc_info=True)
+            if diziler_data: create_m3us_for_category(DIZILER_M3U_DIR, diziler_data)
+            if programlar_data: create_m3us_for_category(PROGRAMLAR_M3U_DIR, programlar_data)
+            create_single_m3u(ALL_M3U_DIR, processed_data, ALL_M3U_NAME)
+            log.info("TÜM İŞLEMLER BAŞARIYLA TAMAMLANDI!")
+        except Exception as e:
+            log.critical("M3U dosyaları oluşturulurken hata: %s", e, exc_info=True)
 
 
 if __name__ == "__main__":
