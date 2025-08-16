@@ -16,8 +16,6 @@ jobs:
       # 1. Adım: Repoyu klonla
       - name: Check out repo
         uses: actions/checkout@v4
-        with:
-          persist-credentials: true
 
       # 2. Adım: Python ortamını kur
       - name: Set up Python
@@ -25,13 +23,15 @@ jobs:
         with:
           python-version: "3.11"
           cache: "pip"
-          # requirements.txt dosyasının yolunu doğru belirttiğinizden emin olun
           cache-dependency-path: "ATV/requirements.txt"
 
       # 3. Adım: Gerekli Python kütüphanelerini yükle
       - name: Install dependencies
-        # Eğer requirements.txt ATV klasöründeyse bu satırı kullanın
         run: pip install -r ATV/requirements.txt
+
+      # YENİ ADIM: Playwright tarayıcısını ve bağımlılıklarını kur
+      - name: Install Playwright Browsers
+        run: python -m playwright install --with-deps chromium
 
       # 4. Adım: ATV scraper script'ini çalıştır
       - name: Run ATV script
@@ -42,7 +42,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          # ATV klasörü altındaki M3U dosyalarını ekle
-          git add ATV/ATV.m3u ATV/programlar/*.m3u || true
+          # ATV klasörü altındaki tüm M3U dosyalarını ve yeni klasörleri ekle
+          git add ATV/ATV.m3u ATV/diziler/*.m3u ATV/programlar/*.m3u || true
           git commit -m "Update ATV M3U files [skip ci]" || echo "No changes to commit"
           git push
