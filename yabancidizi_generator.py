@@ -1,6 +1,7 @@
 import cloudscraper
 import re
 import sys
+from bs4 import BeautifulSoup
 from typing import Dict, List, Optional, Set
 
 # --- Konfigürasyon ---
@@ -8,12 +9,10 @@ FALLBACK_BASE_URL = 'https://yabancidizi.so'
 SOURCE_URL = 'https://raw.githubusercontent.com/fsamet/cs-Kekik/master/YabanciDizi/src/main/kotlin/com/nikyokki/YabanciDizi.kt'
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    'Referer': f'{FALLBACK_BASE_URL}/' 
+    'Referer': f'{FALLBACK_BASE_URL}/',
+    'X-Requested-With': 'XMLHttpRequest' # AJAX isteği için bu başlık önemli
 }
-# Öncelik verilecek player'ların sırası
-PLAYER_PRIORITY = ["Mac", "Vidmoly"]
-# Kaç sayfayı kontrol edeceğimiz (site çok fazla sayfa döndürebilir)
-MAX_PAGES_TO_SCAN = 25
+MAX_PAGES_TO_SCAN = 20 # Kaç sayfayı kontrol edeceğimiz
 
 scraper = cloudscraper.create_scraper()
 
@@ -35,97 +34,106 @@ def get_dynamic_base_url() -> str:
     print(f"Varsayılan URL kullanılıyor: {FALLBACK_BASE_URL}", file=sys.stderr)
     return FALLBACK_BASE_URL
 
+def get_vidmoly_embed_url(base_url: str, episode_url: str) -> Optional[str]:
+    """
+    Bölüm sayfasından Vidmoly 'data-id'sini alıp AJAX isteği ile embed linkini çözer.
+    """
+    try:
+        # 1. Bölüm sayfasının HTML'ini al
+        episode_page_res = scraper.get(episode_url, headers=HEADERS, timeout=20)
+        episode_page_res.raise_for_status()
+        soup = BeautifulSoup(episode_page_res.text, 'html.parser')
+
+        # 2. Vidmoly oynatıcı butonunu bul
+        vidmoly_button = soup.find('a', text='Vidmoly')
+        if not vidmoly_button or not vidmoly_button.has_attr('data-id'):
+            return None
+        
+        data_id = vidmoly_button['data-id']
+        
+        # 3. AJAX POST isteğini yap
+        ajax_url = f"{base_url}/wp-admin/admin-ajax.php"
+        payload = {
+            "action": "get_player_embed",
+            "id": data_id
+        }
+        ajax_res = scraper.post(ajax_url, headers=HEADERS, data=payload, timeout=20)
+        ajax_res.raise_for_status()
+        
+        # 4. Gelen cevaptaki iframe'in src'sini al
+        iframe_soup = BeautifulSoup(ajax_res.text, 'html.parser')
+        iframe = iframe_soup.find('iframe')
+        
+        return iframe['src'] if iframe and iframe.has_attr('src') else None
+
+    except Exception as e:
+        print(f"  - Vidmoly linki alınırken hata: {e}", file=sys.stderr)
+        return None
+
 def main():
-    """Ana fonksiyon: M3U dosyasını oluşturur."""
     base_url = get_dynamic_base_url()
     m3u_lines = ["#EXTM3U\n"]
-    processed_series_ids: Set[int] = set()
-
-    print("Diziler sayfa sayfa alınıyor...", file=sys.stderr)
-    all_series: List[Dict] = []
-    for page in range(MAX_PAGES_TO_SCAN):
+    
+    print("Diziler HTML sayfaları taranarak bulunuyor...", file=sys.stderr)
+    
+    for page in range(1, MAX_PAGES_TO_SCAN + 1):
         try:
-            print(f"Sayfa {page} taranıyor...", file=sys.stderr)
-            series_url = f"{base_url}/api/dizi?page={page}"
-            series_response = scraper.get(series_url, headers=HEADERS, timeout=20)
-            series_response.raise_for_status()
-            series_data = series_response.json()
+            page_url = f"{base_url}/diziler/sayfa/{page}"
+            print(f"\nSayfa {page} taranıyor: {page_url}", file=sys.stderr)
             
-            if not series_data or not isinstance(series_data, list):
-                print(f"Sayfa {page} boş veya geçersiz. Tarama tamamlandı.", file=sys.stderr)
+            main_page_res = scraper.get(page_url, headers=HEADERS, timeout=20)
+            main_page_res.raise_for_status()
+            soup = BeautifulSoup(main_page_res.text, 'html.parser')
+            
+            series_list = soup.select("div.poster-card a")
+            if not series_list:
+                print(f"Sayfa {page} üzerinde dizi bulunamadı. Tarama tamamlandı.", file=sys.stderr)
                 break
-            
-            all_series.extend(series_data)
-        except Exception as e:
-            print(f"Sayfa {page} alınırken hata oluştu: {e}. Tarama tamamlandı.", file=sys.stderr)
-            break
 
-    print(f"Toplam {len(all_series)} dizi girişi bulundu. Bölümler işleniyor...", file=sys.stderr)
-
-    for series_summary in all_series:
-        series_id = series_summary.get('id')
-        if not series_id or series_id in processed_series_ids:
-            continue
-
-        series_title = series_summary.get('title', 'Bilinmeyen Dizi')
-        print(f"\n-> Dizi işleniyor: {series_title} (ID: {series_id})", file=sys.stderr)
-        
-        try:
-            series_detail_url = f"{base_url}/api/dizi/{series_id}"
-            seasons_data = scraper.get(series_detail_url, headers=HEADERS, timeout=20).json()
-        except Exception:
-            print(f"  - {series_title} için sezon verisi alınamadı.", file=sys.stderr)
-            continue
-
-        if not isinstance(seasons_data, list):
-            continue
-
-        for season in seasons_data:
-            episodes = season.get('episodes', [])
-            season_num = season.get('season', 0)
-            
-            for episode in episodes:
-                sources = episode.get('sources', [])
-                if not sources: continue
-
-                final_url = None
-                # Önce öncelikli player'ları ara
-                for player_name in PLAYER_PRIORITY:
-                    for source in sources:
-                        if source.get('player') == player_name:
-                            final_url = source.get('url')
-                            break
-                    if final_url:
-                        break
+            for series_link in series_list:
+                series_url = series_link['href']
+                series_title = series_link.find('h3').text.strip() if series_link.find('h3') else "Bilinmeyen Dizi"
+                series_poster = series_link.find('img')['src'] if series_link.find('img') and series_link.find('img').has_attr('src') else ""
                 
-                # Öncelikli player bulunamazsa ilk bulduğunu al
-                if not final_url and sources:
-                    final_url = sources[0].get('url')
+                print(f"-> Dizi işleniyor: {series_title}", file=sys.stderr)
+                
+                series_page_res = scraper.get(series_url, headers=HEADERS, timeout=20)
+                series_soup = BeautifulSoup(series_page_res.text, 'html.parser')
+                
+                seasons = series_soup.select("div.seasons-list > div")
+                for season_div in seasons:
+                    season_title = season_div.find('h3').text.strip() if season_div.find('h3') else ""
+                    season_num_match = re.search(r'(\d+)\.\s*Sezon', season_title)
+                    season_num = int(season_num_match.group(1)) if season_num_match else 0
 
-                if final_url:
-                    episode_title = episode.get('title', f"Bölüm {episode.get('episode')}")
-                    series_poster = series_summary.get('poster', '')
-                    group_title = f"{series_title} | Sezon {season_num}"
-                    full_title = f"{series_title} - S{season_num:02d}E{episode.get('episode', 0):02d} - {episode_title}"
-                    
-                    m3u_lines.append(
-                        f'#EXTINF:-1 tvg-id="{episode.get("id", "")}" tvg-name="{full_title}" '
-                        f'tvg-logo="{series_poster}" group-title="{group_title}",{full_title}\n'
-                        # İsteğiniz üzerine doğrudan embed linkini ekliyoruz
-                        f'{final_url}\n'
-                    )
+                    episodes = season_div.select("div.season-episodes > a")
+                    for episode_link in episodes:
+                        episode_url = episode_link['href']
+                        episode_title = episode_link.text.strip()
+                        episode_num_match = re.search(r'(\d+)\.\s*Bölüm', episode_title)
+                        episode_num = int(episode_num_match.group(1)) if episode_num_match else 0
+                        
+                        vidmoly_url = get_vidmoly_embed_url(base_url, episode_url)
+                        
+                        if vidmoly_url:
+                            print(f"  + Link bulundu: {series_title} S{season_num:02d}E{episode_num:02d}", file=sys.stderr)
+                            group_title = f"{series_title} | Sezon {season_num}"
+                            full_title = f"{series_title} - S{season_num:02d}E{episode_num:02d} - {episode_title}"
+                            m3u_lines.append(
+                                f'#EXTINF:-1 tvg-name="{full_title}" tvg-logo="{series_poster}" group-title="{group_title}",{full_title}\n'
+                                f'{vidmoly_url}\n'
+                            )
 
-        processed_series_ids.add(series_id)
+        except Exception as e:
+            print(f"Sayfa {page} işlenirken bir hata oluştu: {e}", file=sys.stderr)
+            continue
 
     output_filename = 'yabancidizi_full.m3u'
     with open(output_filename, 'w', encoding='utf-8') as f:
         f.write(''.join(m3u_lines))
         
     content_count = len(m3u_lines) - 1
-    if content_count > 0:
-        print(f"\n'{output_filename}' dosyası başarıyla oluşturuldu! Toplam {content_count} içerik eklendi.", file=sys.stderr)
-    else:
-        print(f"\n'{output_filename}' dosyası oluşturuldu ancak içine eklenecek geçerli yayın bulunamadı.", file=sys.stderr)
+    print(f"\nİşlem tamamlandı. '{output_filename}' dosyasına {content_count} içerik eklendi.", file=sys.stderr)
 
 if __name__ == "__main__":
     main()
