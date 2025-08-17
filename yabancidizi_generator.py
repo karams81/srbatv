@@ -1,4 +1,4 @@
-import cloudscraper # requests yerine cloudscraper'ı import ediyoruz
+import cloudscraper
 import re
 import sys
 from typing import Dict, List, Optional, Set
@@ -10,10 +10,11 @@ HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
     'Referer': f'{FALLBACK_BASE_URL}/' 
 }
+# Öncelik verilecek player'ların sırası
 PLAYER_PRIORITY = ["Mac", "Vidmoly"]
+# Kaç sayfayı kontrol edeceğimiz (site çok fazla sayfa döndürebilir)
+MAX_PAGES_TO_SCAN = 25
 
-# Cloudscraper için bir oturum (scraper) oluşturuyoruz.
-# Bu, tüm isteklerde aynı ayarları ve çerezleri kullanarak daha tutarlı çalışmasını sağlar.
 scraper = cloudscraper.create_scraper()
 
 def get_dynamic_base_url() -> str:
@@ -34,49 +35,30 @@ def get_dynamic_base_url() -> str:
     print(f"Varsayılan URL kullanılıyor: {FALLBACK_BASE_URL}", file=sys.stderr)
     return FALLBACK_BASE_URL
 
-def resolve_player_url(player: str, embed_url: str) -> Optional[str]:
-    """Verilen gömme (embed) linkinden asıl .m3u8 video linkini çözer."""
-    try:
-        print(f"    -> '{player}' oynatıcısı çözümleniyor: {embed_url}", file=sys.stderr)
-        # İstekleri artık scraper üzerinden yapıyoruz
-        page_content = scraper.get(embed_url, headers=HEADERS, timeout=20).text
-
-        if player == "Mac":
-            if match := re.search(r"source:\s*'([^']+\.m3u8)'", page_content):
-                return match.group(1)
-        
-        elif player == "Vidmoly":
-            if match := re.search(r'file:\s*"([^"]+)"', page_content):
-                return match.group(1)
-
-    except Exception as e:
-        print(f"      - Hata: '{player}' linki çözümlenemedi. {e}", file=sys.stderr)
-    
-    return None
-
 def main():
     """Ana fonksiyon: M3U dosyasını oluşturur."""
     base_url = get_dynamic_base_url()
     m3u_lines = ["#EXTM3U\n"]
     processed_series_ids: Set[int] = set()
 
-    print("Ana sayfadan diziler alınıyor...", file=sys.stderr)
-    
-    try:
-        # Ana sayfa verisini de scraper ile çekiyoruz
-        home_response = scraper.get(f"{base_url}/api/home", headers=HEADERS, timeout=30)
-        home_response.raise_for_status()
-        home_data = home_response.json() # JSON'a çevirme işlemi
-    except Exception as e:
-        # JSON hatası veya başka bir istek hatası olursa yakala
-        print(f"Ana sayfa verisi alınamadı veya JSON formatında değil. Hata: {e}", file=sys.stderr)
-        print(f"Alınan yanıt: {home_response.text[:200]}...", file=sys.stderr) # Yanıtın ilk 200 karakterini yazdır
-        return
-
+    print("Diziler sayfa sayfa alınıyor...", file=sys.stderr)
     all_series: List[Dict] = []
-    for key in ['popular_series', 'latest_series', 'series']:
-        if key in home_data and isinstance(home_data[key], list):
-            all_series.extend(home_data[key])
+    for page in range(MAX_PAGES_TO_SCAN):
+        try:
+            print(f"Sayfa {page} taranıyor...", file=sys.stderr)
+            series_url = f"{base_url}/api/dizi?page={page}"
+            series_response = scraper.get(series_url, headers=HEADERS, timeout=20)
+            series_response.raise_for_status()
+            series_data = series_response.json()
+            
+            if not series_data or not isinstance(series_data, list):
+                print(f"Sayfa {page} boş veya geçersiz. Tarama tamamlandı.", file=sys.stderr)
+                break
+            
+            all_series.extend(series_data)
+        except Exception as e:
+            print(f"Sayfa {page} alınırken hata oluştu: {e}. Tarama tamamlandı.", file=sys.stderr)
+            break
 
     print(f"Toplam {len(all_series)} dizi girişi bulundu. Bölümler işleniyor...", file=sys.stderr)
 
@@ -98,27 +80,28 @@ def main():
         if not isinstance(seasons_data, list):
             continue
 
-        # ... (Geri kalan bölüm işleme mantığı aynı, bu yüzden değiştirilmedi) ...
         for season in seasons_data:
             episodes = season.get('episodes', [])
             season_num = season.get('season', 0)
-            print(f"  - Sezon {season_num} için {len(episodes)} bölüm bulundu.", file=sys.stderr)
-
+            
             for episode in episodes:
                 sources = episode.get('sources', [])
                 if not sources: continue
 
-                sorted_sources = sorted(sources, key=lambda s: PLAYER_PRIORITY.index(s['player']) if s.get('player') in PLAYER_PRIORITY else len(PLAYER_PRIORITY))
-
                 final_url = None
-                for source in sorted_sources:
-                    player, embed_url = source.get('player'), source.get('url')
-                    if player and embed_url:
-                        final_url = resolve_player_url(player, embed_url)
-                        if final_url:
-                            print(f"      + Başarılı: '{player}' kaynağından link alındı.", file=sys.stderr)
-                            break 
+                # Önce öncelikli player'ları ara
+                for player_name in PLAYER_PRIORITY:
+                    for source in sources:
+                        if source.get('player') == player_name:
+                            final_url = source.get('url')
+                            break
+                    if final_url:
+                        break
                 
+                # Öncelikli player bulunamazsa ilk bulduğunu al
+                if not final_url and sources:
+                    final_url = sources[0].get('url')
+
                 if final_url:
                     episode_title = episode.get('title', f"Bölüm {episode.get('episode')}")
                     series_poster = series_summary.get('poster', '')
@@ -128,6 +111,7 @@ def main():
                     m3u_lines.append(
                         f'#EXTINF:-1 tvg-id="{episode.get("id", "")}" tvg-name="{full_title}" '
                         f'tvg-logo="{series_poster}" group-title="{group_title}",{full_title}\n'
+                        # İsteğiniz üzerine doğrudan embed linkini ekliyoruz
                         f'{final_url}\n'
                     )
 
