@@ -8,7 +8,7 @@ on:
 jobs:
   generate-playlist:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30 # Tarama işlemi daha uzun sürebileceği için süreyi artıralım
 
     permissions:
       contents: write
@@ -25,7 +25,9 @@ jobs:
     - name: Install dependencies
       run: |
         pip install requests
-        pip install cloudscraper # YENİ: Cloudscraper kütüphanesini yüklüyoruz
+        pip install cloudscraper
+        pip install beautifulsoup4 # YENİ: HTML ayrıştırma için gerekli
+        pip install lxml # BeautifulSoup için daha hızlı bir ayrıştırıcı
 
     - name: Run M3U Generator
       run: python yabancidizi_generator.py
