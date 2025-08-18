@@ -1,7 +1,7 @@
 import requests
 import os
 
-BASE_URL = "https://www.atv.com.tr/karadayi"
+BASE_URL = "https://www.atv.com.tr/karadayi/"
 PROXY_PREFIX = "https://stream-extractor.koprulu.workers.dev/?url="
 EXT = "&ext=mp4"
 COVER_ART = "https://iaatv.tmgrup.com.tr/3b3f5e/500/268/0/0/500/268?u=https://iatv.tmgrup.com.tr/2021/06/24/500x268/1624539164040.jpg"
