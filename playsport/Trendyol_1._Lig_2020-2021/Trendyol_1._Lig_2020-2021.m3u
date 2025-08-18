@@ -1,4 +1,604 @@
 #EXTM3U
 
+#EXTINF:-1 tvg-id="1371902" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111460178.jpg" group-title="Trendyol 1. Lig 2020/2021",Akhisarspor 0-0 Tuzlaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_1_ak_tuz_ip&secure=1
+#EXTINF:-1 tvg-id="1371904" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Balıkesirspor 3-1 Bitexen Giresunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_1_bal_gir_ip&secure=1
+#EXTINF:-1 tvg-id="1371901" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Adanaspor 1-0 İstanbulspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_1_ada_ist_13eylul_ip&secure=1
+#EXTINF:-1 tvg-id="1371903" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altay 0-0 Samsunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_1_alt_sam_kj_13eylul_ip&secure=1
+#EXTINF:-1 tvg-id="1371906" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bursaspor 1-3 Adana Demirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_1_bur_ada_13eylul_ip&secure=1
+#EXTINF:-1 tvg-id="1371908" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Ankaraspor 1-0 Eskişehirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_1_ank_eski_kj_12eylul_ip&secure=1
+#EXTINF:-1 tvg-id="1371905" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Boluspor  0-1 Emre Gökdemir İnşaat Ankara Keçiörengücü
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_1_bolu_keci_kj_12eylul_ip&secure=1
+#EXTINF:-1 tvg-id="1371909" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460170.png" group-title="Trendyol 1. Lig 2020/2021",Eminevim Ümraniyespor  2-1 Bandırma Spor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_1_umr_ban_kj_12eylul_ip&secure=1
+#EXTINF:-1 tvg-id="1371907" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",NasaDoge Menemenspor 0-2 Altınordu
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_1_men_alt_11eylul_ip&secure=1
+#EXTINF:-1 tvg-id="1371910" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Adana Demirspor 1-1 Boluspor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_2_ada_bolu_ip&secure=1
+#EXTINF:-1 tvg-id="1371917" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Samsunspor 3-0 Eminevim Ümraniyespor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_2_sam_um_ip&secure=1
+#EXTINF:-1 tvg-id="1371915" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bitexen Giresunspor 1-1 NasaDoge Menemenspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_2_gir_men_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1371916" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460179.png" group-title="Trendyol 1. Lig 2020/2021",İstanbulspor 2-1 Altay
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_2_ist_alt_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1371912" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Emre Gökdemir İnşaat Ankara Keçiörengücü 2-0 Ankaraspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_2_keci_ank_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1371911" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altınordu 0-2 Bursaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_2_alt_bur_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1371913" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460185.png" group-title="Trendyol 1. Lig 2020/2021",Bandırma Spor 1-0 Akhisarspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_2_ban_ak_kj_19eylul_ip&secure=1
+#EXTINF:-1 tvg-id="1371918" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460187.png" group-title="Trendyol 1. Lig 2020/2021",Tuzlaspor 1-0 Balıkesirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_2_tuz_bal_kj_19eylul_ip&secure=1
+#EXTINF:-1 tvg-id="1371914" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eskişehirspor 0-0 Adanaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_2_esk_ada_kj_18eylul_ip&secure=1
+#EXTINF:-1 tvg-id="1371923" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Boluspor  1-2 Altınordu
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_3_bolu_alti_ip&secure=1
+#EXTINF:-1 tvg-id="1371925" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460194.png" group-title="Trendyol 1. Lig 2020/2021",NasaDoge Menemenspor 2-5 Tuzlaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_3_men_tuz_ip&secure=1
+#EXTINF:-1 tvg-id="1371921" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altay 6-0 Eskişehirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_3_altay_eses_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1371926" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Ankaraspor 1-3 Adana Demirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_3_ank_ads_ip&secure=1
+#EXTINF:-1 tvg-id="1371922" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bandırma Spor 2-2 Samsunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_3_ban_sam_27eylul_ip&secure=1
+#EXTINF:-1 tvg-id="1371920" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111460188.png" group-title="Trendyol 1. Lig 2020/2021",Akhisarspor 2-0 Balıkesirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_3_ak_bal_26eylul_ip&secure=1
+#EXTINF:-1 tvg-id="1371924" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bursaspor 1-2 Bitexen Giresunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_3_bur_gir_26eylul_ip&secure=1
+#EXTINF:-1 tvg-id="1371927" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460191.png" group-title="Trendyol 1. Lig 2020/2021",Eminevim Ümraniyespor  1-3 İstanbulspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_3_um_ist_26eylul_ip&secure=1
+#EXTINF:-1 tvg-id="1371919" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460192.jpg" group-title="Trendyol 1. Lig 2020/2021",Adanaspor 0-0 Emre Gökdemir İnşaat Ankara Keçiörengücü
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_3_ada_kec_kj_25eylul_ip&secure=1
+#EXTINF:-1 tvg-id="1371928" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460197.jpg" group-title="Trendyol 1. Lig 2020/2021",Adana Demirspor 0-0 Adanaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_4_ada_ada_4ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371931" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460199.jpg" group-title="Trendyol 1. Lig 2020/2021",Balıkesirspor 2-1 NasaDoge Menemenspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_4_bal_men_4ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371935" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Samsunspor 1-0 Akhisarspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_4_sam_ak_4ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371932" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eskişehirspor 1-1 Eminevim Ümraniyespor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_4_esk_umra_4ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371929" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altınordu 2-0 Ankaraspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_4_alt_ank_3ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371933" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bitexen Giresunspor 2-1 Boluspor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_4_gir_bolu_kj_3ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371930" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460201.png" group-title="Trendyol 1. Lig 2020/2021",Emre Gökdemir İnşaat Ankara Keçiörengücü 0-1 Altay
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_4_keci_alt_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1371936" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460205.png" group-title="Trendyol 1. Lig 2020/2021",Tuzlaspor 3-3 Bursaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_4_tuz_bur_kj_3ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371934" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460202.png" group-title="Trendyol 1. Lig 2020/2021",İstanbulspor 2-1 Bandırma Spor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_4_ist_ban_2ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371938" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111460209.jpg" group-title="Trendyol 1. Lig 2020/2021",Akhisarspor 0-0 NasaDoge Menemenspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_5_ak_men_19ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371942" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460214.jpg" group-title="Trendyol 1. Lig 2020/2021",Bursaspor 3-1 Balıkesirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_5_bur_bal_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1371941" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Boluspor  1-2 Tuzlaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_5_bolu_tuz_18ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371943" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Ankaraspor 1-1 Bitexen Giresunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_5_ank_gir_18ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371939" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altay 1-0 Adana Demirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_5_altay_ada_17ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371937" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Adanaspor 5-2 Altınordu
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_5_ada_alti_17ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371940" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bandırma Spor 1-1 Eskişehirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_5_ban_esk_17ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371944" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Samsunspor 0-3 İstanbulspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_5_sam_ist_17ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371945" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460206.jpg" group-title="Trendyol 1. Lig 2020/2021",Eminevim Ümraniyespor  1-2 Emre Gökdemir İnşaat Ankara Keçiörengücü
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_5_umra_keci_17ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371953" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111460221.png" group-title="Trendyol 1. Lig 2020/2021",NasaDoge Menemenspor 2-1 Bursaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_6_men_bur_22ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371952" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460216.png" group-title="Trendyol 1. Lig 2020/2021",İstanbulspor 2-2 Akhisarspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_6_ist_ak_22ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371954" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Tuzlaspor 2-0 Ankaraspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_6_tuz_ank_22ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371947" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altınordu 2-1 Altay
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_6_alt_alt_ip&secure=1
+#EXTINF:-1 tvg-id="1371949" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Balıkesirspor 0-0 Boluspor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_6_bal_bolu_ip&secure=1
+#EXTINF:-1 tvg-id="1371946" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460219.png" group-title="Trendyol 1. Lig 2020/2021",Adana Demirspor 4-2 Eminevim Ümraniyespor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_6_ada_umr_ip&secure=1
+#EXTINF:-1 tvg-id="1371951" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bitexen Giresunspor 4-3 Adanaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_6_21ekim_giresun_adana_ozet_ip&secure=1
+#EXTINF:-1 tvg-id="1371950" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eskişehirspor 0-1 Samsunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_6_eses_samsun_ip&secure=1
+#EXTINF:-1 tvg-id="1371948" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460220.png" group-title="Trendyol 1. Lig 2020/2021",Emre Gökdemir İnşaat Ankara Keçiörengücü 1-0 Bandırma Spor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_6_keci_ban_ip&secure=1
+#EXTINF:-1 tvg-id="1371957" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altay 1-1 Bitexen Giresunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_7_2ara_altay_giresun_ozet_ip&secure=1
+#EXTINF:-1 tvg-id="1371956" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111460232.png" group-title="Trendyol 1. Lig 2020/2021",Akhisarspor 2-1 Bursaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_7_ak_bur_26ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371959" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Boluspor  0-0 NasaDoge Menemenspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_7_bolu_men_26ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371955" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460228.jpg" group-title="Trendyol 1. Lig 2020/2021",Adanaspor 1-3 Tuzlaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_7_ada_tuz_25ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371960" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",İstanbulspor 3-0 Eskişehirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_7_ist_esk_25ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371958" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460231.png" group-title="Trendyol 1. Lig 2020/2021",Bandırma Spor 0-3 Adana Demirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_7_ban_demir_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1371961" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Ankaraspor 1-2 Balıkesirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_7_ank_bal_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1371962" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Samsunspor 4-2 Emre Gökdemir İnşaat Ankara Keçiörengücü
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_7_sam_keci_24ekim_ip&secure=1
+#EXTINF:-1 tvg-id="1371963" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eminevim Ümraniyespor  1-1 Altınordu
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_7_um_alti_ip&secure=1
+#EXTINF:-1 tvg-id="1371972" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460233.jpg" group-title="Trendyol 1. Lig 2020/2021",Tuzlaspor 0-1 Altay
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_8_tuz_alt_30ara_ip&secure=1
+#EXTINF:-1 tvg-id="1371971" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",NasaDoge Menemenspor 2-1 Ankaraspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_8_men_ank_ip&secure=1
+#EXTINF:-1 tvg-id="1371965" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altınordu 2-0 Bandırma Spor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_8_17kasim_altinordu_badirma_ip&secure=1
+#EXTINF:-1 tvg-id="1371964" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Adana Demirspor 1-1 Samsunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_8_ads_sam_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1371969" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eskişehirspor 0-1 Akhisarspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_8_eses_ak_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1371966" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460237.jpg" group-title="Trendyol 1. Lig 2020/2021",Emre Gökdemir İnşaat Ankara Keçiörengücü 1-1 İstanbulspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_8_keci_ist_1kasim_ip&secure=1
+#EXTINF:-1 tvg-id="1371968" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bursaspor 4-2 Boluspor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_8_bur_bol_ip&secure=1
+#EXTINF:-1 tvg-id="1371970" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bitexen Giresunspor 0-1 Eminevim Ümraniyespor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_8_gir_um_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1371967" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Balıkesirspor 0-3 Adanaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_8_bal_ada_ip&secure=1
+#EXTINF:-1 tvg-id="1371978" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460248.jpg" group-title="Trendyol 1. Lig 2020/2021",İstanbulspor 3-1 Adana Demirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_9_ist_ads_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1371973" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460242.jpg" group-title="Trendyol 1. Lig 2020/2021",Adanaspor 3-0 NasaDoge Menemenspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_9_ada_men_23ara1_ip&secure=1
+#EXTINF:-1 tvg-id="1371974" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Akhisarspor 2-2 Boluspor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_9_ak_bolu_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1371980" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Samsunspor 1-1 Altınordu
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_9_sam_alti_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1371977" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eskişehirspor 2-2 Emre Gökdemir İnşaat Ankara Keçiörengücü
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_9_eses_keci_ip&secure=1
+#EXTINF:-1 tvg-id="1371979" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Ankaraspor 1-1 Bursaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_9_ank_bursa_ip&secure=1
+#EXTINF:-1 tvg-id="1371976" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bandırma Spor 0-1 Bitexen Giresunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_9_ban_gir_7kasim_ip&secure=1
+#EXTINF:-1 tvg-id="1371981" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460245.png" group-title="Trendyol 1. Lig 2020/2021",Eminevim Ümraniyespor  1-1 Tuzlaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_9_umra_tuz_7kasim_ip&secure=1
+#EXTINF:-1 tvg-id="1371975" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460246.jpg" group-title="Trendyol 1. Lig 2020/2021",Altay 1-3 Balıkesirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_9_alt_balkes_6kasim&secure=1
+#EXTINF:-1 tvg-id="1371985" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Balıkesirspor 1-1 Eminevim Ümraniyespor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_10_bal_um_23kasim_ip&secure=1
+#EXTINF:-1 tvg-id="1371989" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111460251.png" group-title="Trendyol 1. Lig 2020/2021",NasaDoge Menemenspor 1-2 Altay
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_10_men_alt_23kasim_ip&secure=1
+#EXTINF:-1 tvg-id="1371982" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Adana Demirspor 4-1 Eskişehirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_10_ads_eses_ip&secure=1
+#EXTINF:-1 tvg-id="1371990" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460253.png" group-title="Trendyol 1. Lig 2020/2021",Tuzlaspor 0-6 Bandırma Spor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_10_tuzla_ban_ip&secure=1
+#EXTINF:-1 tvg-id="1371988" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bitexen Giresunspor 0-0 Samsunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_10_gir_sam_21kasim_ip&secure=1
+#EXTINF:-1 tvg-id="1371987" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bursaspor 1-0 Adanaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_10_bursa_adana_21kasim_ip&secure=1
+#EXTINF:-1 tvg-id="1371983" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altınordu 1-0 İstanbulspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_10_altin_ist_ip&secure=1
+#EXTINF:-1 tvg-id="1371986" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Boluspor  2-0 Ankaraspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_10_bolu_ank_ip&secure=1
+#EXTINF:-1 tvg-id="1371991" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Adanaspor 2-3 Boluspor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_11_ada_bolu_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1371998" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Samsunspor 2-0 Tuzlaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_11_29kas_sam_tuz_ip&secure=1
+#EXTINF:-1 tvg-id="1371996" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eskişehirspor 0-2 Altınordu
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_11_eses_alti_ip&secure=1
+#EXTINF:-1 tvg-id="1371994" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460266.png" group-title="Trendyol 1. Lig 2020/2021",Emre Gökdemir İnşaat Ankara Keçiörengücü 1-0 Adana Demirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_11_keci_ads_ip&secure=1
+#EXTINF:-1 tvg-id="1371995" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bandırma Spor 1-0 Balıkesirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_11_ban_bal_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1371993" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460264.png" group-title="Trendyol 1. Lig 2020/2021",Altay 3-1 Bursaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_11_altay_bursa_ip&secure=1
+#EXTINF:-1 tvg-id="1371992" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Akhisarspor 0-1 Ankaraspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_11_ak_ankara_ip&secure=1
+#EXTINF:-1 tvg-id="1371997" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",İstanbulspor 1-1 Bitexen Giresunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_11_ist_gir_ip&secure=1
+#EXTINF:-1 tvg-id="1371999" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460263.png" group-title="Trendyol 1. Lig 2020/2021",Eminevim Ümraniyespor  0-2 NasaDoge Menemenspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_11_28kas_umr_mene_ip&secure=1
+#EXTINF:-1 tvg-id="1372010" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111460286.png" group-title="Trendyol 1. Lig 2020/2021",Akhisarspor 0-1 Adanaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_13_ak_ada_11ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372015" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460279.png" group-title="Trendyol 1. Lig 2020/2021",İstanbulspor 5-0 Balıkesirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_13_ist_bal_7ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372017" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eminevim Ümraniyespor  0-2 Boluspor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_13_10ara_umr_bol_ozet_ip&secure=1
+#EXTINF:-1 tvg-id="1372011" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altay 3-0 Ankaraspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_13_altay_ankara_ip&secure=1
+#EXTINF:-1 tvg-id="1372009" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Adana Demirspor 1-1 Altınordu
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_13_ads_altin_ip&secure=1
+#EXTINF:-1 tvg-id="1372012" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Emre Gökdemir İnşaat Ankara Keçiörengücü 0-1 Bitexen Giresunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_13_9ara_kec_gir_ip&secure=1
+#EXTINF:-1 tvg-id="1372016" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Samsunspor 1-1 NasaDoge Menemenspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_13_sam_mene_ip&secure=1
+#EXTINF:-1 tvg-id="1372014" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eskişehirspor 0-2 Tuzlaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_13_eses_tuz_ip&secure=1
+#EXTINF:-1 tvg-id="1372013" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111460285.png" group-title="Trendyol 1. Lig 2020/2021",Bandırma Spor 1-2 Bursaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_13_8ara20_ban_bur_ip&secure=1
+#EXTINF:-1 tvg-id="1372025" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Ankaraspor 0-0 Eminevim Ümraniyespor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_14_14ara_ank_umr_ip&secure=1
+#EXTINF:-1 tvg-id="1372024" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460294.jpg" group-title="Trendyol 1. Lig 2020/2021",NasaDoge Menemenspor 1-2 İstanbulspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_14_14ara_men_ist_ip&secure=1
+#EXTINF:-1 tvg-id="1372023" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bitexen Giresunspor 2-0 Adana Demirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_14_13ara_gir_ads_ip&secure=1
+#EXTINF:-1 tvg-id="1372018" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460287.png" group-title="Trendyol 1. Lig 2020/2021",Adanaspor 1-4 Altay
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_14_13ara_ada_alt_ip&secure=1
+#EXTINF:-1 tvg-id="1372026" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460290.png" group-title="Trendyol 1. Lig 2020/2021",Tuzlaspor 1-0 Emre Gökdemir İnşaat Ankara Keçiörengücü
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_14_13ara_tuz_keci_ip&secure=1
+#EXTINF:-1 tvg-id="1372019" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altınordu 3-2 Akhisarspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_14_13ara_altin_akh_ip&secure=1
+#EXTINF:-1 tvg-id="1372021" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Boluspor  0-1 Bandırma Spor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_14_13ara_bol_ban_ip&secure=1
+#EXTINF:-1 tvg-id="1372022" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bursaspor 3-0 Samsunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_14_12ara_bursa_sam_ip&secure=1
+#EXTINF:-1 tvg-id="1372020" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Balıkesirspor 2-2 Eskişehirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_14_12ara_bal_esk_ip&secure=1
+#EXTINF:-1 tvg-id="1372032" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bitexen Giresunspor 2-0 Altınordu
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_15_gir_alti_21ara_ip&secure=1
+#EXTINF:-1 tvg-id="1372027" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460300.png" group-title="Trendyol 1. Lig 2020/2021",Adana Demirspor 3-1 Tuzlaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_15_ada_tuz_21ara_ip&secure=1
+#EXTINF:-1 tvg-id="1372034" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Samsunspor 1-0 Boluspor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_15_sam_bolu1_21ara_ip&secure=1
+#EXTINF:-1 tvg-id="1372033" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460302.png" group-title="Trendyol 1. Lig 2020/2021",İstanbulspor 3-3 Bursaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_15_ist_bursa_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1372035" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460296.png" group-title="Trendyol 1. Lig 2020/2021",Eminevim Ümraniyespor  1-0 Adanaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_15_umr_ada_20ara_ip&secure=1
+#EXTINF:-1 tvg-id="1372028" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111460299.png" group-title="Trendyol 1. Lig 2020/2021",Altay 2-1 Akhisarspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_15_alt_ak_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1372031" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eskişehirspor 2-2 NasaDoge Menemenspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_15_eses_mene_ip&secure=1
+#EXTINF:-1 tvg-id="1372029" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Emre Gökdemir İnşaat Ankara Keçiörengücü 2-1 Balıkesirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_15_19ara_kec_bal_ip&secure=1
+#EXTINF:-1 tvg-id="1372030" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bandırma Spor 2-1 Ankaraspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_15_19ara_ban_ank_ip&secure=1
+#EXTINF:-1 tvg-id="1372041" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bursaspor 2-1 Eskişehirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_16_bursa_eses_28ara_ip&secure=1
+#EXTINF:-1 tvg-id="1372043" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Ankaraspor 1-2 Samsunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_16_ank_sam_27ara_ip&secure=1
+#EXTINF:-1 tvg-id="1372036" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460310.jpg" group-title="Trendyol 1. Lig 2020/2021",Adanaspor 1-2 Bandırma Spor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_16_ada_ban_27ara_ip&secure=1
+#EXTINF:-1 tvg-id="1372037" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Akhisarspor 0-1 Bitexen Giresunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_16_akh_gir_27ara_ip&secure=1
+#EXTINF:-1 tvg-id="1372042" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460306.png" group-title="Trendyol 1. Lig 2020/2021",NasaDoge Menemenspor 0-0 Emre Gökdemir İnşaat Ankara Keçiörengücü
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_16_men_kec_27ara_ip&secure=1
+#EXTINF:-1 tvg-id="1372039" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460313.jpg" group-title="Trendyol 1. Lig 2020/2021",Balıkesirspor 0-1 Adana Demirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_16_bal_ads_26ara_ip&secure=1
+#EXTINF:-1 tvg-id="1372040" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Boluspor  0-2 İstanbulspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_16_bolu_ist_26ara_ip&secure=1
+#EXTINF:-1 tvg-id="1372044" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Tuzlaspor 4-1 Altınordu
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_16_tuz_ao_26ara_ip&secure=1
+#EXTINF:-1 tvg-id="1372038" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460309.png" group-title="Trendyol 1. Lig 2020/2021",Altay 3-1 Eminevim Ümraniyespor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_16_alt_um_25ara_ip&secure=1
+#EXTINF:-1 tvg-id="1372045" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460318.png" group-title="Trendyol 1. Lig 2020/2021",Adana Demirspor 3-0 NasaDoge Menemenspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_17_ads_men_4ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372049" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eskişehirspor 0-2 Boluspor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_17_esk_bolu_4ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372052" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Samsunspor 2-1 Adanaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_17_sam_ada_3ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372050" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bitexen Giresunspor 3-0 Tuzlaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_17_gir_tuz_3ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372051" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",İstanbulspor 5-3 Ankaraspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_17_ist_ank_ozt_3ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372048" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460316.png" group-title="Trendyol 1. Lig 2020/2021",Bandırma Spor 2-0 Altay
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_17_ban_alt_3oca_ip&secure=1
+#EXTINF:-1 tvg-id="1372046" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altınordu 0-0 Balıkesirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_17_ao_bal_2ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372047" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460319.png" group-title="Trendyol 1. Lig 2020/2021",Emre Gökdemir İnşaat Ankara Keçiörengücü 0-1 Bursaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_17_kec_bur_2ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372053" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460314_1.png" group-title="Trendyol 1. Lig 2020/2021",Eminevim Ümraniyespor  2-1 Akhisarspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_17_umr_akh_2ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372055" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altınordu 2-4 NasaDoge Menemenspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_18_altin_men_25ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372060" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460324.png" group-title="Trendyol 1. Lig 2020/2021",İstanbulspor 1-0 Adanaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_18_ist_ada_25ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372061" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Samsunspor 1-0 Altay
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_18_samsun_altay_ip&secure=1
+#EXTINF:-1 tvg-id="1372059" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bitexen Giresunspor 1-0 Balıkesirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_18_gir_bal_24ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372056" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Emre Gökdemir İnşaat Ankara Keçiörengücü 2-0 Boluspor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_18_kgucu_bol_24ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372062" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460331.png" group-title="Trendyol 1. Lig 2020/2021",Tuzlaspor 0-3 Akhisarspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_18_tuz_akh_24ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372054" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460328.jpg" group-title="Trendyol 1. Lig 2020/2021",Adana Demirspor 1-2 Bursaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_18_ads_bur_23ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372058" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eskişehirspor 0-0 Ankaraspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_18_eses_ank_ip&secure=1
+#EXTINF:-1 tvg-id="1372057" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460323.jpg" group-title="Trendyol 1. Lig 2020/2021",Bandırma Spor 1-0 Eminevim Ümraniyespor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_18_ban_um_23ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372065" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460332.jpg" group-title="Trendyol 1. Lig 2020/2021",Altay 1-3 İstanbulspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_19_1sub_alt_ist_ip&secure=1
+#EXTINF:-1 tvg-id="1372068" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bursaspor 1-2 Altınordu
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_19_bursa_alti_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1372067" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Boluspor  1-2 Adana Demirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_19_bolu_demir_31ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372069" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",NasaDoge Menemenspor 0-4 Bitexen Giresunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_19_men_gir_31ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372071" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eminevim Ümraniyespor  2-2 Samsunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_19_umr_sam_31ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372066" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460340.png" group-title="Trendyol 1. Lig 2020/2021",Balıkesirspor 0-2 Tuzlaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_19_bal_tuz_30ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372063" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Adanaspor 5-2 Eskişehirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_19_ada_esk_30ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372070" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Ankaraspor 1-0 Emre Gökdemir İnşaat Ankara Keçiörengücü
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_19_ank_keci_30ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372064" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111460338.jpg" group-title="Trendyol 1. Lig 2020/2021",Akhisarspor 1-0 Bandırma Spor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_19_ak_ban_29ocak_ip&secure=1
+#EXTINF:-1 tvg-id="1372077" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bitexen Giresunspor 2-1 Bursaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_20_gir_bursa_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1372075" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460341.png" group-title="Trendyol 1. Lig 2020/2021",Balıkesirspor 3-0 Akhisarspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_20_bal_akh_7subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372073" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altınordu 2-1 Boluspor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_20_altin_bolu_7subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372074" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460345.jpg" group-title="Trendyol 1. Lig 2020/2021",Emre Gökdemir İnşaat Ankara Keçiörengücü 1-0 Adanaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_20_keci_ada_7subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372072" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Adana Demirspor 2-0 Ankaraspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_20_ads_ank_6subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372076" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eskişehirspor 0-5 Altay
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_20_esk_alt_6subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372078" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460344.png" group-title="Trendyol 1. Lig 2020/2021",İstanbulspor 2-3 Eminevim Ümraniyespor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_20_ist_umr_6subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372080" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460347.jpg" group-title="Trendyol 1. Lig 2020/2021",Tuzlaspor 2-0 NasaDoge Menemenspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_20_tuz_men_6subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372079" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Samsunspor 3-1 Bandırma Spor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_20_sp05_sam_ban_ip&secure=1
+#EXTINF:-1 tvg-id="1372086" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460358.jpg" group-title="Trendyol 1. Lig 2020/2021",Bursaspor 0-0 Tuzlaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_21_bur_tuz_15subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372081" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460350_1.jpg" group-title="Trendyol 1. Lig 2020/2021",Adanaspor 2-2 Adana Demirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_21_ada_ads_14subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372087" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460352.jpg" group-title="Trendyol 1. Lig 2020/2021",NasaDoge Menemenspor 1-1 Balıkesirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_21_men_bal_14subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372085" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Boluspor  0-1 Bitexen Giresunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_21_bol_gir_14subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372083" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460354.png" group-title="Trendyol 1. Lig 2020/2021",Altay 0-4 Emre Gökdemir İnşaat Ankara Keçiörengücü
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_21_alt_keci_13subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372082" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Akhisarspor 1-4 Samsunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_21_akh_sam_13subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372084" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460355.jpg" group-title="Trendyol 1. Lig 2020/2021",Bandırma Spor 2-1 İstanbulspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_21_ban_ist_13subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372089" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eminevim Ümraniyespor  3-0 Eskişehirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_21_bsu_eses_13subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372088" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Ankaraspor 0-3 Altınordu
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_21_ank_alti_12subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372093" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460367.png" group-title="Trendyol 1. Lig 2020/2021",Balıkesirspor 3-0 Bursaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_22_bal_bur_21subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372098" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Tuzlaspor 0-1 Boluspor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_22_tuz_bolu_21subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372096" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",İstanbulspor 0-1 Samsunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_22_ist_sam_20subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372091" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altınordu 1-1 Adanaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_22_altin_ada_20subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372095" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bitexen Giresunspor 1-0 Ankaraspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_22_gir_ank_20subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372097" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111460362.png" group-title="Trendyol 1. Lig 2020/2021",NasaDoge Menemenspor 6-2 Akhisarspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_22_men_ak_20subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372090" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460363.jpg" group-title="Trendyol 1. Lig 2020/2021",Adana Demirspor 1-2 Altay
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_22_ads_altay_19subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372094" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eskişehirspor 2-1 Bandırma Spor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_22_eses_ban_19subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372092" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460359.jpg" group-title="Trendyol 1. Lig 2020/2021",Emre Gökdemir İnşaat Ankara Keçiörengücü 0-1 Eminevim Ümraniyespor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_22_keci_umr_kj_ip&secure=1
+#EXTINF:-1 tvg-id="1372104" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460374.png" group-title="Trendyol 1. Lig 2020/2021",Bursaspor 0-1 NasaDoge Menemenspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_23_bur_men_25subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372105" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Ankaraspor 0-0 Tuzlaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_23_ank_tuz_25subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372103" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Boluspor  0-0 Balıkesirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_23_bol_bal_25subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372100" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111460369.jpg" group-title="Trendyol 1. Lig 2020/2021",Akhisarspor 0-1 İstanbulspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_23_ak_ist_24subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372106" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Samsunspor 6-1 Eskişehirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_23_samsun_eses_24subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372099" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Adanaspor 0-4 Bitexen Giresunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_23_ada_gir_24subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372101" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altay 1-3 Altınordu
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_23_altay_alt_23subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372102" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460373.png" group-title="Trendyol 1. Lig 2020/2021",Bandırma Spor 1-1 Emre Gökdemir İnşaat Ankara Keçiörengücü
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_23_ban_keci_23subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372107" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460372.png" group-title="Trendyol 1. Lig 2020/2021",Eminevim Ümraniyespor  0-0 Adana Demirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_23_umr_ads_23subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372111" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Balıkesirspor 2-2 Ankaraspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_24_mo_bal_ank_ozet_ip&secure=1
+#EXTINF:-1 tvg-id="1372115" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",NasaDoge Menemenspor 0-3 Boluspor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_24_men_bol_1mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372116" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460381.jpg" group-title="Trendyol 1. Lig 2020/2021",Tuzlaspor 3-2 Adanaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_24_tuz_ada_1mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372114" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bitexen Giresunspor 1-2 Altay
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_24_gir_alt_28subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372112" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111460385.png" group-title="Trendyol 1. Lig 2020/2021",Bursaspor 3-2 Akhisarspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_24_bur_akh_28subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372113" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eskişehirspor 0-3 İstanbulspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_24_esk_ist_ozt_28subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372110" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Emre Gökdemir İnşaat Ankara Keçiörengücü 1-1 Samsunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_24_keci_sam_28subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372108" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460384.png" group-title="Trendyol 1. Lig 2020/2021",Adana Demirspor 2-0 Bandırma Spor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_24_ads_ban_27subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372109" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altınordu 1-0 Eminevim Ümraniyespor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_24_altin_umr_27subat_ip&secure=1
+#EXTINF:-1 tvg-id="1372117" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460388.png" group-title="Trendyol 1. Lig 2020/2021",Adanaspor 1-1 Balıkesirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_25_ada_bal_8mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372119" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460386.png" group-title="Trendyol 1. Lig 2020/2021",Altay 5-0 Tuzlaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_25_alt_tuz_ozt_7mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372118" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Akhisarspor 3-0 Eskişehirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_25_akh_esk_ozt_7mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372121" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Boluspor  2-1 Bursaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_25_bol_bur_ozt_7mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372125" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eminevim Ümraniyespor  3-1 Bitexen Giresunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_25_umr_gir_7mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372124" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Samsunspor 0-2 Adana Demirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_25_sam_ads_6mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372123" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Ankaraspor 1-1 NasaDoge Menemenspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_25_ank_men_6mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372120" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bandırma Spor 2-2 Altınordu
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_25_ban_alti_6mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372122" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460390_1.png" group-title="Trendyol 1. Lig 2020/2021",İstanbulspor 0-0 Emre Gökdemir İnşaat Ankara Keçiörengücü
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_25_sp05_istanbul_kecioren_kjli_ip&secure=1
+#EXTINF:-1 tvg-id="1372127" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altınordu 0-0 Samsunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_26_alti_sam_15mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372131" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bursaspor 3-1 Ankaraspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_26_bur_ank_14mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372129" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460399.png" group-title="Trendyol 1. Lig 2020/2021",Balıkesirspor 0-3 Altay
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_26_bal_altay_14mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372133" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111460395.jpg" group-title="Trendyol 1. Lig 2020/2021",NasaDoge Menemenspor 0-0 Adanaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_26_mene_ada_14mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372134" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460398.jpg" group-title="Trendyol 1. Lig 2020/2021",Tuzlaspor 0-1 Eminevim Ümraniyespor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_26_tuz_umr_14mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372126" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460401.png" group-title="Trendyol 1. Lig 2020/2021",Adana Demirspor 2-0 İstanbulspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_26_ads_ist_13mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372130" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Boluspor  0-1 Akhisarspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_26_bol_akh_13mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372128" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Emre Gökdemir İnşaat Ankara Keçiörengücü 1-0 Eskişehirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_26_keci_eses_13mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372132" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bitexen Giresunspor 0-1 Bandırma Spor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_26_gir_ban_ip&secure=1
+#EXTINF:-1 tvg-id="1372135" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460411.png" group-title="Trendyol 1. Lig 2020/2021",Adanaspor 0-3 Bursaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_27_ada_bur_21mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372136" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111460409.png" group-title="Trendyol 1. Lig 2020/2021",Akhisarspor 1-2 Emre Gökdemir İnşaat Ankara Keçiörengücü
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_27_akh_keci_21mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372141" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Ankaraspor 1-2 Boluspor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_27_ank_bol_21mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372138" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460406_1.jpg" group-title="Trendyol 1. Lig 2020/2021",Bandırma Spor 3-2 Tuzlaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_27_ban_tuz_21mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372142" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Samsunspor 0-2 Bitexen Giresunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_27_sam_gir_20mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372139" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eskişehirspor 1-1 Adana Demirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_27_esk_ads_20mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372140" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",İstanbulspor 1-2 Altınordu
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_27_ist_aor_20mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372143" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460412.jpg" group-title="Trendyol 1. Lig 2020/2021",Eminevim Ümraniyespor  1-2 Balıkesirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_27_umr_bal_20mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372137" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460404.png" group-title="Trendyol 1. Lig 2020/2021",Altay 3-0 NasaDoge Menemenspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_27_alt_men_19mart_ip&secure=1
+#EXTINF:-1 tvg-id="1372148" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111460417.jpg" group-title="Trendyol 1. Lig 2020/2021",Bursaspor 1-3 Altay
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_28_bur_altay_4nisan&secure=1
+#EXTINF:-1 tvg-id="1372146" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460421.jpg" group-title="Trendyol 1. Lig 2020/2021",Balıkesirspor 2-1 Bandırma Spor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_28_balkes_ban_4nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372150" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460416.jpg" group-title="Trendyol 1. Lig 2020/2021",NasaDoge Menemenspor 1-1 Eminevim Ümraniyespor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_28_men_umr_4nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372145" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altınordu 6-3 Eskişehirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_28_aor_esk_4nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372147" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Boluspor  1-2 Adanaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_28_bol_ada_4nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372144" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460419.png" group-title="Trendyol 1. Lig 2020/2021",Adana Demirspor 2-0 Emre Gökdemir İnşaat Ankara Keçiörengücü
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_28_ads_keci_3nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372149" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bitexen Giresunspor 0-0 İstanbulspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_28_gir_ist_3nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372151" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Ankaraspor 4-2 Akhisarspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_28_ank_akh_3nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372152" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Tuzlaspor 0-2 Samsunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_28_tuz_sam_3nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372153" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Adanaspor 1-2 Ankaraspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_29_ada_ank_11nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372161" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460429.png" group-title="Trendyol 1. Lig 2020/2021",Eminevim Ümraniyespor  2-1 Bursaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_29_umr_bur_11nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372154" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111460427.png" group-title="Trendyol 1. Lig 2020/2021",Akhisarspor 2-3 Adana Demirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_29_akh_ads_10nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372160" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Samsunspor 1-0 Balıkesirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_29_sam_bal_10nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372155" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altay 0-1 Boluspor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_29_alt_bolu_10nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372157" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bandırma Spor 2-2 NasaDoge Menemenspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_29_ban_men_10nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372159" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460425.jpg" group-title="Trendyol 1. Lig 2020/2021",İstanbulspor 2-1 Tuzlaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_29_ist_tuz_9nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372156" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Emre Gökdemir İnşaat Ankara Keçiörengücü 5-3 Altınordu
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_29_keci_aor_9nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372158" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eskişehirspor 0-5 Bitexen Giresunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_29_esk_gir_9nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372166" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111460438.png" group-title="Trendyol 1. Lig 2020/2021",Bursaspor 2-1 Bandırma Spor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_30_bur_ban_15nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372169" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Ankaraspor 2-2 Altay
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_30_ank_alt_15nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372165" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Boluspor  1-4 Eminevim Ümraniyespor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_30_bolu_umr_15nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372164" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460432.png" group-title="Trendyol 1. Lig 2020/2021",Balıkesirspor 1-2 İstanbulspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_30_bal_ist_14nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372162" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460439.png" group-title="Trendyol 1. Lig 2020/2021",Adanaspor 3-1 Akhisarspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_30_ada_akh_30h_1mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1372168" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",NasaDoge Menemenspor 2-2 Samsunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_30_men_sam_14nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372163" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altınordu 0-1 Adana Demirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_30_aor_ads_13nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372167" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bitexen Giresunspor 2-1 Emre Gökdemir İnşaat Ankara Keçiörengücü
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_30_gire_keci_13nisan&secure=1
+#EXTINF:-1 tvg-id="1372170" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Tuzlaspor 5-2 Eskişehirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_30_tuz_esk_13nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372178" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Samsunspor 4-1 Bursaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_31_sam_bur_19nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372173" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460440.jpg" group-title="Trendyol 1. Lig 2020/2021",Altay 4-1 Adanaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_31_altay_ada_19nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372175" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bandırma Spor 2-3 Boluspor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_31_ban_bolu_19nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372179" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eminevim Ümraniyespor  4-3 Ankaraspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_31_umr_ank_19nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372177" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460447.jpg" group-title="Trendyol 1. Lig 2020/2021",İstanbulspor 4-0 NasaDoge Menemenspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_31_ist_men_18nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372172" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Akhisarspor 1-1 Altınordu
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_31_akh_aor_18nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372176" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eskişehirspor 0-3 Balıkesirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_31_eses_bal_18nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372171" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Adana Demirspor 3-0 Bitexen Giresunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_31_ads_gir_17nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372174" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460443.png" group-title="Trendyol 1. Lig 2020/2021",Emre Gökdemir İnşaat Ankara Keçiörengücü 0-1 Tuzlaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_31_keci_tuz_17nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372180" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460449.png" group-title="Trendyol 1. Lig 2020/2021",Adanaspor 0-2 Eminevim Ümraniyespor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_32_ada_umr_25nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372181" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111460452.png" group-title="Trendyol 1. Lig 2020/2021",Akhisarspor 2-0 Altay
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_32_ak_alt_25nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372182" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altınordu 0-0 Bitexen Giresunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_32_alti_gir_25nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372183" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460450.jpg" group-title="Trendyol 1. Lig 2020/2021",Balıkesirspor 1-2 Emre Gökdemir İnşaat Ankara Keçiörengücü
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_32_bal_keci_25nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372184" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Boluspor  0-2 Samsunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_32_bolu_sam_25nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372185" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460455.png" group-title="Trendyol 1. Lig 2020/2021",Bursaspor 1-2 İstanbulspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_32_bur_ist_25nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372186" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",NasaDoge Menemenspor 2-1 Eskişehirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_32_men_eses_25nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372187" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Ankaraspor 3-2 Bandırma Spor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_32_ank_ban_25nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372188" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460453.png" group-title="Trendyol 1. Lig 2020/2021",Tuzlaspor 0-3 Adana Demirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_32_tuz_ada_25nisan_ip&secure=1
+#EXTINF:-1 tvg-id="1372189" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460466.jpg" group-title="Trendyol 1. Lig 2020/2021",Adana Demirspor 3-0 Balıkesirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_33_ads_bal_v1_1mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1372190" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altınordu 3-2 Tuzlaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_33_aor_tuz_1mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1372191" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460459.jpg" group-title="Trendyol 1. Lig 2020/2021",Emre Gökdemir İnşaat Ankara Keçiörengücü 4-1 NasaDoge Menemenspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_33_keci_men_1mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1372192" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460463.jpg" group-title="Trendyol 1. Lig 2020/2021",Bandırma Spor 3-2 Adanaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_33_ban_ada_1mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1372194" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Bitexen Giresunspor 3-0 Akhisarspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_33_gir_akh_1mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1372195" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",İstanbulspor 1-1 Boluspor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_33_ist_bol_v2_1mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1372196" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Samsunspor 3-1 Ankaraspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_33_sam_ank_1mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1372197" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460462.jpg" group-title="Trendyol 1. Lig 2020/2021",Eminevim Ümraniyespor  0-1 Altay
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_33_umr_alt_1mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1372193" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Eskişehirspor 1-5 Bursaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_33_esk_bur_1mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1372198" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Adanaspor 0-2 Samsunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_34_ada_sam_9mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1372204" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111460471.jpg" group-title="Trendyol 1. Lig 2020/2021",NasaDoge Menemenspor 1-4 Adana Demirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_34_men_ads_9mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1372206" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Tuzlaspor 1-2 Bitexen Giresunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_34_tuz_gir_9mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1372200" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460469.jpg" group-title="Trendyol 1. Lig 2020/2021",Altay 4-3 Bandırma Spor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_34_alt_ban_9mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1372201" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Balıkesirspor 0-5 Altınordu
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_34_bal_aor_9mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1372203" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111460472.jpg" group-title="Trendyol 1. Lig 2020/2021",Bursaspor 0-3 Emre Gökdemir İnşaat Ankara Keçiörengücü
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_34_bur_keci_9mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1372205" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Ankaraspor 0-2 İstanbulspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_34_ank_ist_9mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1372199" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111460467.jpg" group-title="Trendyol 1. Lig 2020/2021",Akhisarspor 1-1 Eminevim Ümraniyespor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_34_akh_umr_7mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1372202" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Boluspor  3-0 Eskişehirspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_34_bol_esk_7mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1386685" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altınordu 1-0 Samsunspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_35_aor_sam_18mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1386684" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111504547.jpg" group-title="Trendyol 1. Lig 2020/2021",Altay 3-2 İstanbulspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_35_alt_ist_17mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1386687" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Samsunspor 2-2 Altınordu
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_36_sam_alti_22mayis_ip&secure=1
+#EXTINF:-1 tvg-id="1386686" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111504549.png" group-title="Trendyol 1. Lig 2020/2021",İstanbulspor 0-1 Altay
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_36_ist_alt_22mayis_ip&secure=1
 #EXTINF:-1 tvg-id="1387519" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2020/2021",Altınordu 0-1 Altay
 https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20202021_37_aor_alt_ozt_26mayis_ip&secure=1
