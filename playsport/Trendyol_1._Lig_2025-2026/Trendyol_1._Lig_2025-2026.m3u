@@ -1,0 +1,22 @@
+#EXTM3U
+
+#EXTINF:-1 tvg-id="1494310" tvg-logo="https://media02.tr.beinsports.com/img/highlights/1494310.jpg" group-title="Trendyol 1. Lig 2025/2026",Amed Sportif Faaliyetler 2-2 Erzurumspor FK
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20252026_2_amed_erz_2h_18agu_ip&secure=1
+#EXTINF:-1 tvg-id="1494312" tvg-logo="https://media01.tr.beinsports.com/img/highlights/1494312.jpg" group-title="Trendyol 1. Lig 2025/2026",Manisa FK 2-1 Atakaş Hatayspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20252026_2_man_hat_2h_17agu_ip&secure=1
+#EXTINF:-1 tvg-id="1494314" tvg-logo="https://media03.tr.beinsports.com/img/highlights/1494314.jpg" group-title="Trendyol 1. Lig 2025/2026",Sakaryaspor 3-2 Alagöz Holding Iğdır FK
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20252026_2_sak_igdir_2h_17agu_ip&secure=1
+#EXTINF:-1 tvg-id="1494317" tvg-logo="https://media03.tr.beinsports.com/img/highlights/1494317.jpg" group-title="Trendyol 1. Lig 2025/2026",Özbelsan Sivasspor 1-1 Sipay Bodrum FK
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20252026_2_v2_siv_bod_2h_17agu_ip&secure=1
+#EXTINF:-1 tvg-id="1494318" tvg-logo="https://media01.tr.beinsports.com/img/highlights/1494318.jpg" group-title="Trendyol 1. Lig 2025/2026",İmaj Altyapı Van Spor FK 1-0 Esenler Erokspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20252026_2_van_erok_2h_17agu_ip&secure=1
+#EXTINF:-1 tvg-id="1494309" tvg-logo="https://media01.tr.beinsports.com/img/highlights/1494309.jpg" group-title="Trendyol 1. Lig 2025/2026",Adana Demirspor 0-3 Arca Çorum FK
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20252026_2_ads_cor_2h_16agu_ip&secure=1
+#EXTINF:-1 tvg-id="1494313" tvg-logo="https://media02.tr.beinsports.com/img/highlights/1494313.jpg" group-title="Trendyol 1. Lig 2025/2026",Atko Grup Pendikspor 2-0 Bandırma Spor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20252026_2_pen_ban_2h_16agu_ip&secure=1
+#EXTINF:-1 tvg-id="1494315" tvg-logo="https://media01.tr.beinsports.com/img/highlights/1494315.jpg" group-title="Trendyol 1. Lig 2025/2026",SMS Grup Sarıyerspor 1-1 Boluspor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20252026_2_sari_bolu_2h_16agu_ip&secure=1
+#EXTINF:-1 tvg-id="1494311" tvg-logo="https://media03.tr.beinsports.com/img/highlights/1494311.jpg" group-title="Trendyol 1. Lig 2025/2026",Emre Gökdemir İnşaat Ankara Keçiörengücü 0-0 İstanbulspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20252026_2_keci_ist_2h_16agu_ip&secure=1
+#EXTINF:-1 tvg-id="1494316" tvg-logo="https://media02.tr.beinsports.com/img/highlights/1494316.jpg" group-title="Trendyol 1. Lig 2025/2026",Serik Spor Futbol A.Ş. 1-0 Eminevim Ümraniyespor 
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20252026_2_v2_serik_umr_2h_15agu_ip&secure=1
