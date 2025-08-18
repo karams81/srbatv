@@ -46,7 +46,7 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           
           # Değişiklikleri sahneye ekle
-          git add saku/
+          git add playsport/
           
           # Değişiklik olup olmadığını kontrol et ve varsa commit at
           git diff --staged --quiet || git commit -m "[BOT] M3U Dosyaları Güncellendi"
