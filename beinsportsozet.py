@@ -51,18 +51,32 @@ birinci_lig_sezonlar = {
     3856: '2025/2026',
 }
 
-# 1. Lig için haftalar ve st kodları (verilen URL'lerden alındı)
-birinci_lig_parametreler = {
-    1108: {'hafta': 34, 'st': 5067},
-    1105: {'hafta': 34, 'st': 5166},
-    908: {'hafta': 34, 'st': 517},
-    1034: {'hafta': 37, 'st': 0},
-    3190: {'hafta': 37, 'st': 0},
-    3309: {'hafta': 40, 'st': 56523},
-    3440: {'hafta': 41, 'st': 57092},
-    3583: {'hafta': 37, 'st': 58256},
-    3759: {'hafta': 42, 'st': 58686},
-    3856: {'hafta': 2, 'st': 0},
+# 1. Lig için hafta aralıkları (1'den belirtilen haftaya kadar)
+birinci_lig_haftalar = {
+    1108: range(1, 35),  # 34 Hafta
+    1105: range(1, 35),  # 34 Hafta
+    908:  range(1, 35),  # 34 Hafta
+    1034: range(1, 38),  # 37 Hafta
+    3190: range(1, 38),  # 37 Hafta
+    3309: range(1, 41),  # 40 Hafta
+    3440: range(1, 42),  # 41 Hafta
+    3583: range(1, 38),  # 37 Hafta
+    3759: range(1, 43),  # 42 Hafta
+    3856: range(1, 3),   # 2 Hafta (mevcut veri)
+}
+
+# 1. Lig için st kodları
+birinci_lig_st = {
+    1108: 5067,
+    1105: 5166,
+    908:  517,
+    1034: 0,
+    3190: 0,
+    3309: 56523,
+    3440: 57092,
+    3583: 58256,
+    3759: 58686,
+    3856: 0,
 }
 
 
@@ -119,14 +133,13 @@ for sezon_id, sezon_adi in super_lig_sezonlar.items():
 
 # Trendyol 1. Lig URL'lerini oluştur
 for sezon_id, sezon_adi in birinci_lig_sezonlar.items():
-    params = birinci_lig_parametreler.get(sezon_id)
-    if params:
-        hafta = params['hafta']
-        st = params['st']
-        group_title = f"Trendyol 1. Lig {sezon_adi}"
-        # 1. Lig için haftalar aralık değil, tekil değerler
+    haftalar = birinci_lig_haftalar.get(sezon_id, range(1, 2)) # ID bulunamazsa varsayılan olarak 1 hafta
+    st = birinci_lig_st.get(sezon_id, 0) # Varsayılan st değeri
+    group_title = f"Trendyol 1. Lig {sezon_adi}"
+    for hafta in haftalar:
         url = f"https://beinsports.com.tr/api/highlights/events?sp=1&o=130&s={sezon_id}&r={hafta}&st={st}"
         all_urls_to_fetch.append((url, group_title))
+
 
 # Sonuçları gruplamak için sözlük
 grouped_results = {}
