@@ -16,6 +16,11 @@ jobs:
     # Görevin çalışacağı sanal makine ortamı
     runs-on: ubuntu-latest
 
+    # --- EKLENEN BÖLÜM ---
+    # Bu iş akışına depoya yazma izni veriyoruz.
+    permissions:
+      contents: write
+
     # Görevin adımları
     steps:
       # 1. Adım: Depodaki kodları sanal makineye indirir
@@ -32,7 +37,8 @@ jobs:
       - name: Bağımlılıkları Yükle
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements1.txt
+          # DÜZELTME: Dosya adı "requirements.txt" olarak güncellendi.
+          pip install -r requirements.txt
 
       # 4. Adım: Ana Python betiğini çalıştırır
       - name: Betiği Çalıştır
