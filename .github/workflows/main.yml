@@ -1,5 +1,5 @@
 # GitHub Actions İş Akışı Adı
-name: Otomatik M3U Güncelleyici
+name: özetler
 
 # Bu iş akışının ne zaman çalışacağını belirleyen tetikleyiciler
 on:
