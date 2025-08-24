@@ -544,7 +544,7 @@ https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&cust
 https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20192020_32_akh_balkes_6tem_ip&secure=1
 #EXTINF:-1 tvg-id="1035674" tvg-logo="https://media03.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2019/2020 Ekstra",Eskişehirspor 0-3 İstanbulspor
 https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20192020_32_esk_ist_6tem_ip&secure=1
-#EXTINF:-1 tvg-id="1035675" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2019/2020 Ekstra",Fatih Karagümrük 3-1 Boluspor 
+#EXTINF:-1 tvg-id="1035675" tvg-logo="https://media01.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2019/2020 Ekstra",Mısırlı.com.tr Fatih Karagümrük 3-1 Boluspor 
 https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20192020_32_kara_bolu_6tem_ip&secure=1
 #EXTINF:-1 tvg-id="1035671" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111395099.png" group-title="Trendyol 1. Lig 2019/2020 Ekstra",Adana Demirspor 2-2 Altay
 https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20192020_32_kj_ads_altay_5tem_ip&secure=1
@@ -586,7 +586,7 @@ https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&cust
 https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20192020_34_ak_keci_18tem_ip&secure=1
 #EXTINF:-1 tvg-id="1035691" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111395119.png" group-title="Trendyol 1. Lig 2019/2020 Ekstra",Erzurumspor FK 4-1 Eminevim Ümraniyespor 
 https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20192020_34_erz_umr_18tem_ip&secure=1
-#EXTINF:-1 tvg-id="1035693" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111395121.png" group-title="Trendyol 1. Lig 2019/2020 Ekstra",Fatih Karagümrük 3-0 Adanaspor
+#EXTINF:-1 tvg-id="1035693" tvg-logo="https://media01.tr.beinsports.com/img/highlights/111395121.png" group-title="Trendyol 1. Lig 2019/2020 Ekstra",Mısırlı.com.tr Fatih Karagümrük 3-0 Adanaspor
 https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20192020_34_kara_ada_18tem_ip&secure=1
 #EXTINF:-1 tvg-id="1035694" tvg-logo="https://media02.tr.beinsports.com/img/highlights/ozet.jpg" group-title="Trendyol 1. Lig 2019/2020 Ekstra",Bitexen Giresunspor 1-2 Altay
 https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20192020_34_gir_alt_18tem_ip&secure=1
@@ -602,5 +602,5 @@ https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&cust
 https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20192020_36_ada_bur_kj_26tem_ip&secure=1
 #EXTINF:-1 tvg-id="1365466" tvg-logo="https://media02.tr.beinsports.com/img/highlights/111441260.jpg" group-title="Trendyol 1. Lig 2019/2020 Ekstra",Akhisarspor 0-1 Mısırlı.com.tr Fatih Karagümrük
 https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20192020_36_ak_kara_kj_26tem_ip&secure=1
-#EXTINF:-1 tvg-id="1366328" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111444075.jpg" group-title="Trendyol 1. Lig 2019/2020 Ekstra",Adana Demirspor 1-1 Fatih Karagümrük
+#EXTINF:-1 tvg-id="1366328" tvg-logo="https://media03.tr.beinsports.com/img/highlights/111444075.jpg" group-title="Trendyol 1. Lig 2019/2020 Ekstra",Adana Demirspor 1-1 Mısırlı.com.tr Fatih Karagümrük
 https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ptt_20192020_37_ada_vefa_ip&secure=1
