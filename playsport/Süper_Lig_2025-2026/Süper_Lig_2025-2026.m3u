@@ -42,3 +42,5 @@ https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&cust
 https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ozt_20252026_3_gazi_genc_3h_23agu_ip&secure=1
 #EXTINF:-1 tvg-id="1493378" tvg-logo="https://media03.tr.beinsports.com/img/highlights/1493378.jpg" group-title="Süper Lig 2025/2026",Mısırlı.com.tr Fatih Karagümrük 0-2 Göztepe
 https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ozt_20252026_3_kara_goz_3h_22agu_ip&secure=1
+#EXTINF:-1 tvg-id="1493390" tvg-logo="https://media03.tr.beinsports.com/img/highlights/1493390.jpg" group-title="Süper Lig 2025/2026",Göztepe 1-1 Tümosan Konyaspor
+https://dt-switch.akamaized.net/api/er/Get?ai=636&ak=null&switch=beinsports&customerid=1&format=4&action=redirect&ar=ligtvcomtr_tauri_ozt_20252026_4_goz_kon_4h_29agu_ip&secure=1
